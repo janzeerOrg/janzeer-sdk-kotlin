@@ -1,0 +1,1567 @@
+public class org/janzeer/sdk/client/ApiException : org/janzeer/sdk/client/JanzeerException {
+	public fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getBody ()Ljava/lang/Object;
+	public final fun getStatus ()I
+	public final fun getType ()Ljava/lang/String;
+}
+
+public abstract class org/janzeer/sdk/client/BaseBlock {
+	public abstract fun getHash ()Ljava/lang/String;
+	public abstract fun getHeight ()J
+	public abstract fun getPreviousHash ()Ljava/lang/String;
+	public abstract fun getPublicKey ()Ljava/lang/String;
+	public abstract fun getSignature ()Ljava/lang/String;
+	public abstract fun getTimestamp ()J
+}
+
+public abstract class org/janzeer/sdk/client/BaseTx {
+	public abstract fun getBlockHash ()Ljava/lang/String;
+	public abstract fun getFee ()Ljava/math/BigDecimal;
+	public abstract fun getHash ()Ljava/lang/String;
+	public abstract fun getSenderAddress ()Ljava/lang/String;
+	public abstract fun getSenderPublicKey ()Ljava/lang/String;
+	public abstract fun getSenderSignature ()Ljava/lang/String;
+	public abstract fun getTimestamp ()J
+	public final fun isFinal ()Z
+}
+
+public final class org/janzeer/sdk/client/Envelope {
+	public fun <init> (JLjava/lang/String;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/String;)Lorg/janzeer/sdk/client/Envelope;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/Envelope;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Envelope;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTimestamp ()J
+	public final fun getVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/Errors {
+	public static final field INSTANCE Lorg/janzeer/sdk/client/Errors;
+	public static final fun fromRest (ILkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/JanzeerException;
+	public static final fun fromRest (ILkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Lorg/janzeer/sdk/client/JanzeerException;
+	public static synthetic fun fromRest$default (ILkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/JanzeerException;
+	public static final fun fromRpc (Lkotlinx/serialization/json/JsonObject;)Lorg/janzeer/sdk/client/JanzeerException;
+	public static final fun fromRpc (Lkotlinx/serialization/json/JsonObject;Lorg/janzeer/sdk/client/Transport;)Lorg/janzeer/sdk/client/JanzeerException;
+	public static synthetic fun fromRpc$default (Lkotlinx/serialization/json/JsonObject;Lorg/janzeer/sdk/client/Transport;ILjava/lang/Object;)Lorg/janzeer/sdk/client/JanzeerException;
+}
+
+public final class org/janzeer/sdk/client/ExitValidatorTx : org/janzeer/sdk/client/BaseTx {
+	public static final field Companion Lorg/janzeer/sdk/client/ExitValidatorTx$Companion;
+	public fun <init> (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/math/BigDecimal;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/client/ExitValidatorTx;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/ExitValidatorTx;Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/ExitValidatorTx;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ExitValidatorTx;
+	public fun getBlockHash ()Ljava/lang/String;
+	public fun getFee ()Ljava/math/BigDecimal;
+	public fun getHash ()Ljava/lang/String;
+	public fun getSenderAddress ()Ljava/lang/String;
+	public fun getSenderPublicKey ()Ljava/lang/String;
+	public fun getSenderSignature ()Ljava/lang/String;
+	public fun getTimestamp ()J
+	public final fun getValidatorKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/ExitValidatorTx$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ExitValidatorTx;
+}
+
+public final class org/janzeer/sdk/client/ExplorerInfo {
+	public static final field Companion Lorg/janzeer/sdk/client/ExplorerInfo$Companion;
+	public fun <init> (IJJJLjava/math/BigDecimal;JJILjava/math/BigDecimal;Ljava/math/BigDecimal;)V
+	public final fun component1 ()I
+	public final fun component10 ()Ljava/math/BigDecimal;
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun component5 ()Ljava/math/BigDecimal;
+	public final fun component6 ()J
+	public final fun component7 ()J
+	public final fun component8 ()I
+	public final fun component9 ()Ljava/math/BigDecimal;
+	public final fun copy (IJJJLjava/math/BigDecimal;JJILjava/math/BigDecimal;Ljava/math/BigDecimal;)Lorg/janzeer/sdk/client/ExplorerInfo;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/ExplorerInfo;IJJJLjava/math/BigDecimal;JJILjava/math/BigDecimal;Ljava/math/BigDecimal;ILjava/lang/Object;)Lorg/janzeer/sdk/client/ExplorerInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ExplorerInfo;
+	public final fun getBlockProductionTime ()J
+	public final fun getBlocksCount ()J
+	public final fun getCirculatingSupply ()Ljava/math/BigDecimal;
+	public final fun getCurrentEpochDate ()J
+	public final fun getCurrentEpochNumber ()J
+	public final fun getMaxSupply ()Ljava/math/BigDecimal;
+	public final fun getNodesCount ()I
+	public final fun getTransactionsCount ()J
+	public final fun getTransactionsPerSecond ()Ljava/math/BigDecimal;
+	public final fun getValidatorsCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/ExplorerInfo$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ExplorerInfo;
+}
+
+public final class org/janzeer/sdk/client/FinalityTimeoutException : org/janzeer/sdk/client/JanzeerException {
+	public fun <init> (Ljava/lang/String;Lorg/janzeer/sdk/rpc/TxView;)V
+	public final fun getHash ()Ljava/lang/String;
+	public final fun getLast ()Lorg/janzeer/sdk/rpc/TxView;
+}
+
+public final class org/janzeer/sdk/client/GenesisBlock : org/janzeer/sdk/client/BaseBlock {
+	public static final field Companion Lorg/janzeer/sdk/client/GenesisBlock$Companion;
+	public fun <init> (JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()J
+	public final fun component8 ()I
+	public final fun copy (JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)Lorg/janzeer/sdk/client/GenesisBlock;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/GenesisBlock;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JIILjava/lang/Object;)Lorg/janzeer/sdk/client/GenesisBlock;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/GenesisBlock;
+	public final fun getEpochIndex ()J
+	public fun getHash ()Ljava/lang/String;
+	public fun getHeight ()J
+	public fun getPreviousHash ()Ljava/lang/String;
+	public fun getPublicKey ()Ljava/lang/String;
+	public fun getSignature ()Ljava/lang/String;
+	public fun getTimestamp ()J
+	public final fun getValidatorsCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/GenesisBlock$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/GenesisBlock;
+}
+
+public final class org/janzeer/sdk/client/Helpers {
+	public static final field INSTANCE Lorg/janzeer/sdk/client/Helpers;
+	public static final fun nextNonce (Ljava/lang/Object;Ljava/lang/String;)J
+	public static final fun sendAndWait (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;)Lorg/janzeer/sdk/rpc/TxView;
+	public static final fun sendAndWait (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;Ljava/lang/Object;)Lorg/janzeer/sdk/rpc/TxView;
+	public static final fun sendAndWait (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;Ljava/lang/Object;J)Lorg/janzeer/sdk/rpc/TxView;
+	public static synthetic fun sendAndWait$default (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;Ljava/lang/Object;JILjava/lang/Object;)Lorg/janzeer/sdk/rpc/TxView;
+	public static final fun waitForFinality (Ljava/lang/Object;Ljava/lang/String;)Lorg/janzeer/sdk/rpc/TxView;
+	public static final fun waitForFinality (Ljava/lang/Object;Ljava/lang/String;J)Lorg/janzeer/sdk/rpc/TxView;
+	public static final fun waitForFinality (Ljava/lang/Object;Ljava/lang/String;JJ)Lorg/janzeer/sdk/rpc/TxView;
+	public static synthetic fun waitForFinality$default (Ljava/lang/Object;Ljava/lang/String;JJILjava/lang/Object;)Lorg/janzeer/sdk/rpc/TxView;
+}
+
+public final class org/janzeer/sdk/client/JanzeerClient : java/io/Closeable {
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;)V
+	public fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Ljava/util/Map;)V
+	public fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Ljava/util/Map;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Ljava/util/Map;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun balance (Ljava/lang/String;)Ljava/math/BigDecimal;
+	public fun close ()V
+	public final fun explorerInfo ()Lorg/janzeer/sdk/client/ExplorerInfo;
+	public final fun get (Ljava/lang/String;)Lkotlinx/serialization/json/JsonElement;
+	public final fun get (Ljava/lang/String;Ljava/util/Map;)Lkotlinx/serialization/json/JsonElement;
+	public final fun get (Ljava/lang/String;Ljava/util/Map;Lkotlinx/serialization/json/JsonElement;)Lkotlinx/serialization/json/JsonElement;
+	public final fun get (Ljava/lang/String;Ljava/util/Map;Lkotlinx/serialization/json/JsonElement;Z)Lkotlinx/serialization/json/JsonElement;
+	public static synthetic fun get$default (Lorg/janzeer/sdk/client/JanzeerClient;Ljava/lang/String;Ljava/util/Map;Lkotlinx/serialization/json/JsonElement;ZILjava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+	public final fun getBaseUrl ()Ljava/lang/String;
+	public final fun getBlocks ()Lorg/janzeer/sdk/client/JanzeerClient$BlocksApi;
+	public final fun getExitValidatorTxs ()Lorg/janzeer/sdk/client/JanzeerClient$TxApi;
+	public final fun getLastEnvelope ()Lorg/janzeer/sdk/client/Envelope;
+	public final fun getOrNotFound (Ljava/lang/String;Ljava/util/Map;Lkotlinx/serialization/json/JsonElement;)Lkotlinx/serialization/json/JsonElement;
+	public final fun getRewards ()Lorg/janzeer/sdk/client/JanzeerClient$TxApi;
+	public final fun getTokenTxs ()Lorg/janzeer/sdk/client/JanzeerClient$TxApi;
+	public final fun getTokens ()Lorg/janzeer/sdk/client/JanzeerClient$TokensApi;
+	public final fun getTransfers ()Lorg/janzeer/sdk/client/JanzeerClient$TxApi;
+	public final fun getValidatorTxs ()Lorg/janzeer/sdk/client/JanzeerClient$TxApi;
+	public final fun getValidators ()Lorg/janzeer/sdk/client/JanzeerClient$ValidatorsApi;
+	public final fun info ()Lorg/janzeer/sdk/client/NodeInfo;
+	public final fun nonce (Ljava/lang/String;)J
+	public final fun post (Ljava/lang/String;Ljava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+	public final fun receipt (Ljava/lang/String;)Lorg/janzeer/sdk/client/Receipt;
+	public final fun submit (Lorg/janzeer/sdk/tx/SignedTx;)Lorg/janzeer/sdk/client/BaseTx;
+	public final fun uptime ()J
+	public final fun validateAddress (Ljava/lang/String;)Z
+	public final fun version ()Lorg/janzeer/sdk/client/NodeVersion;
+}
+
+public final class org/janzeer/sdk/client/JanzeerClient$BlockApi {
+	public final fun get (Ljava/lang/String;)Lorg/janzeer/sdk/client/BaseBlock;
+	public final fun list ()Lorg/janzeer/sdk/client/Page;
+	public final fun list (Lorg/janzeer/sdk/client/PageQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun list$default (Lorg/janzeer/sdk/client/JanzeerClient$BlockApi;Lorg/janzeer/sdk/client/PageQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+	public final fun next (Ljava/lang/String;)Lorg/janzeer/sdk/client/BaseBlock;
+	public final fun previous (Ljava/lang/String;)Lorg/janzeer/sdk/client/BaseBlock;
+}
+
+public final class org/janzeer/sdk/client/JanzeerClient$BlocksApi {
+	public final fun getGenesis ()Lorg/janzeer/sdk/client/JanzeerClient$BlockApi;
+	public final fun getMain ()Lorg/janzeer/sdk/client/JanzeerClient$BlockApi;
+}
+
+public final class org/janzeer/sdk/client/JanzeerClient$TokensApi {
+	public final fun balancesOf (Ljava/lang/String;)Lorg/janzeer/sdk/client/Page;
+	public final fun balancesOf (Ljava/lang/String;Lorg/janzeer/sdk/client/PageQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun balancesOf$default (Lorg/janzeer/sdk/client/JanzeerClient$TokensApi;Ljava/lang/String;Lorg/janzeer/sdk/client/PageQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+	public final fun get (Ljava/lang/String;)Lorg/janzeer/sdk/client/Token;
+	public final fun holders (Ljava/lang/String;)Lorg/janzeer/sdk/client/Page;
+	public final fun holders (Ljava/lang/String;Lorg/janzeer/sdk/client/PageQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun holders$default (Lorg/janzeer/sdk/client/JanzeerClient$TokensApi;Ljava/lang/String;Lorg/janzeer/sdk/client/PageQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+	public final fun list ()Lorg/janzeer/sdk/client/Page;
+	public final fun list (Lorg/janzeer/sdk/client/PageQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun list$default (Lorg/janzeer/sdk/client/JanzeerClient$TokensApi;Lorg/janzeer/sdk/client/PageQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+}
+
+public final class org/janzeer/sdk/client/JanzeerClient$TxApi {
+	public final fun get (Ljava/lang/String;)Lorg/janzeer/sdk/client/BaseTx;
+	public final fun list ()Lorg/janzeer/sdk/client/Page;
+	public final fun list (Lorg/janzeer/sdk/client/TxListQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun list$default (Lorg/janzeer/sdk/client/JanzeerClient$TxApi;Lorg/janzeer/sdk/client/TxListQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+}
+
+public final class org/janzeer/sdk/client/JanzeerClient$ValidatorsApi {
+	public final fun active ()Lorg/janzeer/sdk/client/Page;
+	public final fun active (Lorg/janzeer/sdk/client/PageQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun active$default (Lorg/janzeer/sdk/client/JanzeerClient$ValidatorsApi;Lorg/janzeer/sdk/client/PageQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+	public final fun list ()Lorg/janzeer/sdk/client/Page;
+	public final fun list (Lorg/janzeer/sdk/client/PageQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun list$default (Lorg/janzeer/sdk/client/JanzeerClient$ValidatorsApi;Lorg/janzeer/sdk/client/PageQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+	public final fun view ()Lorg/janzeer/sdk/client/Page;
+	public final fun view (Lorg/janzeer/sdk/client/PageQuery;)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun view$default (Lorg/janzeer/sdk/client/JanzeerClient$ValidatorsApi;Lorg/janzeer/sdk/client/PageQuery;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+}
+
+public class org/janzeer/sdk/client/JanzeerException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/janzeer/sdk/client/JsonUtil {
+	public static final field INSTANCE Lorg/janzeer/sdk/client/JsonUtil;
+	public static final fun big (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Ljava/math/BigInteger;
+	public static synthetic fun big$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Ljava/math/BigInteger;
+	public static final fun bool (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Z
+	public static synthetic fun bool$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Z
+	public static final fun dec (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Ljava/math/BigDecimal;
+	public static synthetic fun dec$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Ljava/math/BigDecimal;
+	public final fun getJson ()Lkotlinx/serialization/json/Json;
+	public static final fun int (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)I
+	public static synthetic fun int$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)I
+	public static final fun long (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)J
+	public static synthetic fun long$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)J
+	public static final fun obj (Lkotlinx/serialization/json/JsonElement;)Lkotlinx/serialization/json/JsonObject;
+	public static final fun optBig (Lkotlinx/serialization/json/JsonElement;)Ljava/math/BigInteger;
+	public static final fun optBool (Lkotlinx/serialization/json/JsonElement;)Ljava/lang/Boolean;
+	public static final fun optDec (Lkotlinx/serialization/json/JsonElement;)Ljava/math/BigDecimal;
+	public static final fun optInt (Lkotlinx/serialization/json/JsonElement;)Ljava/lang/Integer;
+	public static final fun optLong (Lkotlinx/serialization/json/JsonElement;)Ljava/lang/Long;
+	public static final fun optStr (Lkotlinx/serialization/json/JsonElement;)Ljava/lang/String;
+	public static final fun parse (Ljava/lang/String;)Lkotlinx/serialization/json/JsonElement;
+	public static final fun reqArr (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Lkotlinx/serialization/json/JsonArray;
+	public static synthetic fun reqArr$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/serialization/json/JsonArray;
+	public static final fun reqObj (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Lkotlinx/serialization/json/JsonObject;
+	public static synthetic fun reqObj$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/serialization/json/JsonObject;
+	public static final fun str (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun str$default (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+	public static final fun stringify (Ljava/lang/Object;)Ljava/lang/String;
+	public static final fun toElement (Ljava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+	public static final fun toPlain (Lkotlinx/serialization/json/JsonElement;)Ljava/lang/Object;
+}
+
+public final class org/janzeer/sdk/client/MainBlock : org/janzeer/sdk/client/BaseBlock {
+	public static final field Companion Lorg/janzeer/sdk/client/MainBlock$Companion;
+	public fun <init> (JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()J
+	public final fun component9 ()J
+	public final fun copy (JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Lorg/janzeer/sdk/client/MainBlock;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/MainBlock;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJILjava/lang/Object;)Lorg/janzeer/sdk/client/MainBlock;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/MainBlock;
+	public final fun getEpochIndex ()J
+	public fun getHash ()Ljava/lang/String;
+	public fun getHeight ()J
+	public final fun getMerkleHash ()Ljava/lang/String;
+	public fun getPreviousHash ()Ljava/lang/String;
+	public fun getPublicKey ()Ljava/lang/String;
+	public fun getSignature ()Ljava/lang/String;
+	public fun getTimestamp ()J
+	public final fun getTransactionsCount ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/MainBlock$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/MainBlock;
+}
+
+public final class org/janzeer/sdk/client/NetworkException : org/janzeer/sdk/client/JanzeerException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/janzeer/sdk/client/NodeInfo {
+	public static final field Companion Lorg/janzeer/sdk/client/NodeInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;I)Lorg/janzeer/sdk/client/NodeInfo;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/NodeInfo;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lorg/janzeer/sdk/client/NodeInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/NodeInfo;
+	public final fun getHost ()Ljava/lang/String;
+	public final fun getNodeKey ()Ljava/lang/String;
+	public final fun getPort ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/NodeInfo$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/NodeInfo;
+}
+
+public final class org/janzeer/sdk/client/NodeVersion {
+	public static final field Companion Lorg/janzeer/sdk/client/NodeVersion$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/client/NodeVersion;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/NodeVersion;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/NodeVersion;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/NodeVersion;
+	public final fun getProtocolVersion ()Ljava/lang/String;
+	public final fun getVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/NodeVersion$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/NodeVersion;
+}
+
+public final class org/janzeer/sdk/client/NonceMismatchException : org/janzeer/sdk/client/TxRejectedException {
+	public static final field Companion Lorg/janzeer/sdk/client/NonceMismatchException$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public static final fun fromMessage (Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;)Lorg/janzeer/sdk/client/NonceMismatchException;
+	public static final fun fromMessage (Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;)Lorg/janzeer/sdk/client/NonceMismatchException;
+	public static final fun fromMessage (Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;Ljava/lang/Integer;)Lorg/janzeer/sdk/client/NonceMismatchException;
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getExpected ()Ljava/lang/Long;
+	public final fun getGot ()Ljava/lang/Long;
+}
+
+public final class org/janzeer/sdk/client/NonceMismatchException$Companion {
+	public final fun fromMessage (Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;)Lorg/janzeer/sdk/client/NonceMismatchException;
+	public final fun fromMessage (Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;)Lorg/janzeer/sdk/client/NonceMismatchException;
+	public final fun fromMessage (Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;Ljava/lang/Integer;)Lorg/janzeer/sdk/client/NonceMismatchException;
+	public static synthetic fun fromMessage$default (Lorg/janzeer/sdk/client/NonceMismatchException$Companion;Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;Ljava/lang/Integer;ILjava/lang/Object;)Lorg/janzeer/sdk/client/NonceMismatchException;
+}
+
+public final class org/janzeer/sdk/client/NotFoundException : org/janzeer/sdk/client/ApiException {
+	public fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/janzeer/sdk/client/NotSynchronizedException : org/janzeer/sdk/client/JanzeerException {
+	public fun <init> (Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;)V
+	public final fun getTransport ()Lorg/janzeer/sdk/client/Transport;
+}
+
+public final class org/janzeer/sdk/client/Page {
+	public static final field Companion Lorg/janzeer/sdk/client/Page$Companion;
+	public fun <init> (JLjava/util/List;III)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun copy (JLjava/util/List;III)Lorg/janzeer/sdk/client/Page;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/Page;JLjava/util/List;IIIILjava/lang/Object;)Lorg/janzeer/sdk/client/Page;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/client/Page;
+	public final fun getList ()Ljava/util/List;
+	public final fun getPage ()I
+	public final fun getPageSize ()I
+	public final fun getTotal ()J
+	public final fun getTotalPages ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/Page$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/client/Page;
+}
+
+public final class org/janzeer/sdk/client/PageQuery {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;)V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;)V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;)V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Integer;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;)Lorg/janzeer/sdk/client/PageQuery;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/PageQuery;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/PageQuery;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPage ()Ljava/lang/Integer;
+	public final fun getSize ()Ljava/lang/Integer;
+	public final fun getSortBy ()Ljava/util/List;
+	public final fun getSortDirection ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toQuery ()Ljava/util/Map;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/RateLimitedException : org/janzeer/sdk/client/JanzeerException {
+	public fun <init> (Ljava/lang/String;JLorg/janzeer/sdk/client/Transport;)V
+	public final fun getRetryAfterMs ()J
+	public final fun getTransport ()Lorg/janzeer/sdk/client/Transport;
+}
+
+public final class org/janzeer/sdk/client/Receipt {
+	public static final field Companion Lorg/janzeer/sdk/client/Receipt$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lorg/janzeer/sdk/client/Receipt;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/Receipt;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Receipt;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/Receipt;
+	public final fun getResults ()Ljava/util/List;
+	public final fun getTransactionHash ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/Receipt$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/Receipt;
+}
+
+public final class org/janzeer/sdk/client/ReceiptResult {
+	public static final field Companion Lorg/janzeer/sdk/client/ReceiptResult$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/math/BigDecimal;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/client/ReceiptResult;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/ReceiptResult;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/ReceiptResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ReceiptResult;
+	public final fun getAmount ()Ljava/math/BigDecimal;
+	public final fun getData ()Ljava/lang/String;
+	public final fun getError ()Ljava/lang/String;
+	public final fun getFrom ()Ljava/lang/String;
+	public final fun getTo ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/ReceiptResult$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ReceiptResult;
+}
+
+public final class org/janzeer/sdk/client/RegisterValidatorTx : org/janzeer/sdk/client/BaseTx {
+	public static final field Companion Lorg/janzeer/sdk/client/RegisterValidatorTx$Companion;
+	public fun <init> (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/math/BigDecimal;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/math/BigDecimal;
+	public final fun copy (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;)Lorg/janzeer/sdk/client/RegisterValidatorTx;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/RegisterValidatorTx;Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;ILjava/lang/Object;)Lorg/janzeer/sdk/client/RegisterValidatorTx;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/RegisterValidatorTx;
+	public final fun getAmount ()Ljava/math/BigDecimal;
+	public fun getBlockHash ()Ljava/lang/String;
+	public fun getFee ()Ljava/math/BigDecimal;
+	public fun getHash ()Ljava/lang/String;
+	public fun getSenderAddress ()Ljava/lang/String;
+	public fun getSenderPublicKey ()Ljava/lang/String;
+	public fun getSenderSignature ()Ljava/lang/String;
+	public fun getTimestamp ()J
+	public final fun getValidatorKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/RegisterValidatorTx$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/RegisterValidatorTx;
+}
+
+public final class org/janzeer/sdk/client/RewardTx : org/janzeer/sdk/client/BaseTx {
+	public static final field Companion Lorg/janzeer/sdk/client/RewardTx$Companion;
+	public fun <init> (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/math/BigDecimal;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/math/BigDecimal;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;)Lorg/janzeer/sdk/client/RewardTx;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/RewardTx;Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/RewardTx;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/RewardTx;
+	public fun getBlockHash ()Ljava/lang/String;
+	public fun getFee ()Ljava/math/BigDecimal;
+	public fun getHash ()Ljava/lang/String;
+	public final fun getRecipientAddress ()Ljava/lang/String;
+	public final fun getReward ()Ljava/math/BigDecimal;
+	public fun getSenderAddress ()Ljava/lang/String;
+	public fun getSenderPublicKey ()Ljava/lang/String;
+	public fun getSenderSignature ()Ljava/lang/String;
+	public fun getTimestamp ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/RewardTx$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/RewardTx;
+}
+
+public final class org/janzeer/sdk/client/RpcCodes {
+	public static final field INSTANCE Lorg/janzeer/sdk/client/RpcCodes;
+	public static final field INTERNAL I
+	public static final field INVALID_PARAMS I
+	public static final field INVALID_REQUEST I
+	public static final field LIMIT I
+	public static final field METHOD_NOT_FOUND I
+	public static final field NOT_FOUND I
+	public static final field NOT_SYNCHRONIZED I
+	public static final field PARSE_ERROR I
+	public static final field RATE_LIMITED I
+	public static final field REJECTED I
+}
+
+public class org/janzeer/sdk/client/RpcException : org/janzeer/sdk/client/JanzeerException {
+	public fun <init> (ILjava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCode ()I
+	public final fun getData ()Ljava/lang/Object;
+}
+
+public final class org/janzeer/sdk/client/RpcInvalidParamsException : org/janzeer/sdk/client/RpcException {
+	public fun <init> (ILjava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/janzeer/sdk/client/RpcLimitException : org/janzeer/sdk/client/RpcException {
+	public fun <init> (ILjava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/janzeer/sdk/client/RpcMethodNotFoundException : org/janzeer/sdk/client/RpcException {
+	public fun <init> (ILjava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/janzeer/sdk/client/RpcNotFoundException : org/janzeer/sdk/client/RpcException {
+	public fun <init> (ILjava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/janzeer/sdk/client/Token {
+	public static final field Companion Lorg/janzeer/sdk/client/Token$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()Ljava/math/BigInteger;
+	public final fun component6 ()Ljava/math/BigInteger;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;)Lorg/janzeer/sdk/client/Token;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/Token;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Token;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/Token;
+	public final fun getCap ()Ljava/math/BigInteger;
+	public final fun getDecimals ()I
+	public final fun getIssuer ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSymbol ()Ljava/lang/String;
+	public final fun getTokenId ()Ljava/lang/String;
+	public final fun getTotalSupply ()Ljava/math/BigInteger;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/Token$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/Token;
+}
+
+public final class org/janzeer/sdk/client/TokenBalance {
+	public static final field Companion Lorg/janzeer/sdk/client/TokenBalance$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/math/BigInteger;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/math/BigInteger;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/math/BigInteger;)Lorg/janzeer/sdk/client/TokenBalance;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/TokenBalance;Ljava/lang/String;Ljava/lang/String;Ljava/math/BigInteger;ILjava/lang/Object;)Lorg/janzeer/sdk/client/TokenBalance;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/TokenBalance;
+	public final fun getBalance ()Ljava/math/BigInteger;
+	public final fun getHolder ()Ljava/lang/String;
+	public final fun getTokenId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/TokenBalance$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/TokenBalance;
+}
+
+public final class org/janzeer/sdk/client/TokenTx : org/janzeer/sdk/client/BaseTx {
+	public static final field Companion Lorg/janzeer/sdk/client/TokenTx$Companion;
+	public fun <init> (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()I
+	public final fun component13 ()Ljava/math/BigInteger;
+	public final fun component14 ()Ljava/math/BigInteger;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/math/BigDecimal;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Lorg/janzeer/sdk/TokenOp;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;)Lorg/janzeer/sdk/client/TokenTx;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/TokenTx;Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/TokenTx;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/TokenTx;
+	public final fun getAmount ()Ljava/math/BigInteger;
+	public fun getBlockHash ()Ljava/lang/String;
+	public final fun getCap ()Ljava/math/BigInteger;
+	public final fun getDecimals ()I
+	public fun getFee ()Ljava/math/BigDecimal;
+	public fun getHash ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOp ()Lorg/janzeer/sdk/TokenOp;
+	public final fun getRecipient ()Ljava/lang/String;
+	public fun getSenderAddress ()Ljava/lang/String;
+	public fun getSenderPublicKey ()Ljava/lang/String;
+	public fun getSenderSignature ()Ljava/lang/String;
+	public final fun getSymbol ()Ljava/lang/String;
+	public fun getTimestamp ()J
+	public final fun getTokenId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/TokenTx$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/TokenTx;
+}
+
+public final class org/janzeer/sdk/client/TransferTx : org/janzeer/sdk/client/BaseTx {
+	public static final field Companion Lorg/janzeer/sdk/client/TransferTx$Companion;
+	public fun <init> (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Ljava/util/List;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/math/BigDecimal;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Z
+	public final fun component9 ()Ljava/math/BigDecimal;
+	public final fun copy (Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lorg/janzeer/sdk/client/TransferTx;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/TransferTx;Ljava/lang/String;JLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lorg/janzeer/sdk/client/TransferTx;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/TransferTx;
+	public final fun getAmount ()Ljava/math/BigDecimal;
+	public fun getBlockHash ()Ljava/lang/String;
+	public final fun getData ()Ljava/lang/String;
+	public fun getFee ()Ljava/math/BigDecimal;
+	public fun getHash ()Ljava/lang/String;
+	public final fun getRecipientAddress ()Ljava/lang/String;
+	public final fun getResults ()Ljava/util/List;
+	public fun getSenderAddress ()Ljava/lang/String;
+	public fun getSenderPublicKey ()Ljava/lang/String;
+	public fun getSenderSignature ()Ljava/lang/String;
+	public final fun getStatus ()Z
+	public fun getTimestamp ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/TransferTx$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/TransferTx;
+}
+
+public final class org/janzeer/sdk/client/Transport : java/lang/Enum {
+	public static final field REST Lorg/janzeer/sdk/client/Transport;
+	public static final field RPC Lorg/janzeer/sdk/client/Transport;
+	public static final field WS Lorg/janzeer/sdk/client/Transport;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lorg/janzeer/sdk/client/Transport;
+	public static fun values ()[Lorg/janzeer/sdk/client/Transport;
+}
+
+public final class org/janzeer/sdk/client/TxListQuery {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Z)V
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;)V
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;)V
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;)V
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/Integer;
+	public final fun component6 ()Ljava/lang/Integer;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;)Lorg/janzeer/sdk/client/TxListQuery;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/TxListQuery;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/TxListQuery;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getNodeKey ()Ljava/lang/String;
+	public final fun getPage ()Ljava/lang/Integer;
+	public final fun getSize ()Ljava/lang/Integer;
+	public final fun getSortBy ()Ljava/util/List;
+	public final fun getSortDirection ()Ljava/lang/String;
+	public final fun getTokenId ()Ljava/lang/String;
+	public final fun getUnconfirmed ()Z
+	public fun hashCode ()I
+	public final fun toQuery ()Ljava/util/Map;
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/janzeer/sdk/client/TxRejectedException : org/janzeer/sdk/client/JanzeerException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/client/Transport;Ljava/lang/Integer;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getHttpStatus ()Ljava/lang/Integer;
+	public final fun getRawType ()Ljava/lang/String;
+	public final fun getRpcCode ()Ljava/lang/Integer;
+	public final fun getTransport ()Lorg/janzeer/sdk/client/Transport;
+	public final fun getType ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/ValidationException : org/janzeer/sdk/client/ApiException {
+	public fun <init> (Ljava/util/List;Ljava/lang/Object;)V
+	public final fun getMessages ()Ljava/util/List;
+}
+
+public final class org/janzeer/sdk/client/Validator {
+	public static final field Companion Lorg/janzeer/sdk/client/Validator$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/client/Validator;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/Validator;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/client/Validator;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/Validator;
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getNodeKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/Validator$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/Validator;
+}
+
+public final class org/janzeer/sdk/client/ValidatorView {
+	public static final field Companion Lorg/janzeer/sdk/client/ValidatorView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Lorg/janzeer/sdk/client/ValidatorView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/ValidatorView;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lorg/janzeer/sdk/client/ValidatorView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ValidatorView;
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getPublicKey ()Ljava/lang/String;
+	public final fun getTimestamp ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/client/ValidatorView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/ValidatorView;
+}
+
+public final class org/janzeer/sdk/client/coroutines/SuspendKt {
+	public static final fun balanceAsync (Lorg/janzeer/sdk/client/JanzeerClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getAccountAsync (Lorg/janzeer/sdk/rpc/RpcMethods;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun nonceAsync (Lorg/janzeer/sdk/client/JanzeerClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun sendAndWaitAsync (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;Ljava/lang/Object;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun sendAndWaitAsync$default (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;Ljava/lang/Object;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun sendAsync (Lorg/janzeer/sdk/rpc/RpcMethods;Lorg/janzeer/sdk/tx/SignedTx;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun submitAsync (Lorg/janzeer/sdk/client/JanzeerClient;Lorg/janzeer/sdk/tx/SignedTx;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun waitForFinalityAsync (Ljava/lang/Object;Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun waitForFinalityAsync$default (Ljava/lang/Object;Ljava/lang/String;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class org/janzeer/sdk/rpc/AccountView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/AccountView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/math/BigDecimal;Ljava/math/BigDecimal;JJIZ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/math/BigDecimal;
+	public final fun component3 ()Ljava/math/BigDecimal;
+	public final fun component4 ()J
+	public final fun component5 ()J
+	public final fun component6 ()I
+	public final fun component7 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/math/BigDecimal;Ljava/math/BigDecimal;JJIZ)Lorg/janzeer/sdk/rpc/AccountView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/AccountView;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/math/BigDecimal;JJIZILjava/lang/Object;)Lorg/janzeer/sdk/rpc/AccountView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/AccountView;
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getBalance ()Ljava/math/BigDecimal;
+	public final fun getCommittedBalance ()Ljava/math/BigDecimal;
+	public final fun getCommittedNonce ()J
+	public final fun getNextNonce ()J
+	public final fun getPendingCount ()I
+	public fun hashCode ()I
+	public final fun isValidatorWallet ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/AccountView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/AccountView;
+}
+
+public final class org/janzeer/sdk/rpc/AddressActivityEvent {
+	public fun <init> (JLjava/lang/String;Lorg/janzeer/sdk/rpc/TxView;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lorg/janzeer/sdk/rpc/TxView;
+	public final fun copy (JLjava/lang/String;Lorg/janzeer/sdk/rpc/TxView;)Lorg/janzeer/sdk/rpc/AddressActivityEvent;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/AddressActivityEvent;JLjava/lang/String;Lorg/janzeer/sdk/rpc/TxView;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/AddressActivityEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlockHash ()Ljava/lang/String;
+	public final fun getBlockHeight ()J
+	public final fun getTransaction ()Lorg/janzeer/sdk/rpc/TxView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/AddressTransactions {
+	public static final field Companion Lorg/janzeer/sdk/rpc/AddressTransactions$Companion;
+	public fun <init> (Lorg/janzeer/sdk/rpc/RpcPage;Ljava/util/List;)V
+	public final fun component1 ()Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Lorg/janzeer/sdk/rpc/RpcPage;Ljava/util/List;)Lorg/janzeer/sdk/rpc/AddressTransactions;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/AddressTransactions;Lorg/janzeer/sdk/rpc/RpcPage;Ljava/util/List;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/AddressTransactions;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/AddressTransactions;
+	public final fun getPage ()Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun getPending ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/AddressTransactions$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/AddressTransactions;
+}
+
+public final class org/janzeer/sdk/rpc/BatchRequest {
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Object;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Object;)Lorg/janzeer/sdk/rpc/BatchRequest;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/BatchRequest;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/BatchRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMethod ()Ljava/lang/String;
+	public final fun getParams ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/BatchResult {
+	public fun <init> (Lkotlinx/serialization/json/JsonElement;Lorg/janzeer/sdk/client/JanzeerException;)V
+	public final fun component1 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component2 ()Lorg/janzeer/sdk/client/JanzeerException;
+	public final fun copy (Lkotlinx/serialization/json/JsonElement;Lorg/janzeer/sdk/client/JanzeerException;)Lorg/janzeer/sdk/rpc/BatchResult;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/BatchResult;Lkotlinx/serialization/json/JsonElement;Lorg/janzeer/sdk/client/JanzeerException;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/BatchResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lorg/janzeer/sdk/client/JanzeerException;
+	public final fun getOk ()Z
+	public final fun getResult ()Lkotlinx/serialization/json/JsonElement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/BlockView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/BlockView$Companion;
+	public fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13 ()Ljava/lang/Integer;
+	public final fun component14 ()Ljava/util/List;
+	public final fun component15 ()Ljava/util/List;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun component9 ()J
+	public final fun copy (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Ljava/util/List;)Lorg/janzeer/sdk/rpc/BlockView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/BlockView;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/BlockView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/BlockView;
+	public final fun getActiveAnchorCount ()Ljava/lang/Integer;
+	public final fun getEpochIndex ()Ljava/lang/Long;
+	public final fun getHash ()Ljava/lang/String;
+	public final fun getHeight ()J
+	public final fun getPreviousHash ()Ljava/lang/String;
+	public final fun getProducer ()Ljava/lang/String;
+	public final fun getReceiptMerkleHash ()Ljava/lang/String;
+	public final fun getSignature ()Ljava/lang/String;
+	public final fun getStateMerkleHash ()Ljava/lang/String;
+	public final fun getTimestamp ()J
+	public final fun getTransactionMerkleHash ()Ljava/lang/String;
+	public final fun getTransactions ()Ljava/util/List;
+	public final fun getTransactionsCount ()J
+	public final fun getType ()Ljava/lang/String;
+	public final fun getValidators ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/BlockView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/BlockView;
+}
+
+public final class org/janzeer/sdk/rpc/ChainSpecView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/ChainSpecView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JJJJIIILjava/math/BigDecimal;JLjava/math/BigDecimal;ILjava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;JLjava/math/BigDecimal;Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/math/BigDecimal;
+	public final fun component11 ()J
+	public final fun component12 ()Ljava/math/BigDecimal;
+	public final fun component13 ()I
+	public final fun component14 ()Ljava/math/BigDecimal;
+	public final fun component15 ()Ljava/math/BigDecimal;
+	public final fun component16 ()Ljava/math/BigDecimal;
+	public final fun component17 ()Ljava/math/BigDecimal;
+	public final fun component18 ()J
+	public final fun component19 ()Ljava/math/BigDecimal;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component20 ()Ljava/lang/String;
+	public final fun component21 ()I
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun component5 ()J
+	public final fun component6 ()J
+	public final fun component7 ()I
+	public final fun component8 ()I
+	public final fun component9 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JJJJIIILjava/math/BigDecimal;JLjava/math/BigDecimal;ILjava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;JLjava/math/BigDecimal;Ljava/lang/String;I)Lorg/janzeer/sdk/rpc/ChainSpecView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/ChainSpecView;Ljava/lang/String;Ljava/lang/String;JJJJIIILjava/math/BigDecimal;JLjava/math/BigDecimal;ILjava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;JLjava/math/BigDecimal;Ljava/lang/String;IILjava/lang/Object;)Lorg/janzeer/sdk/rpc/ChainSpecView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/ChainSpecView;
+	public final fun getAmountScale ()I
+	public final fun getBlockCapacity ()I
+	public final fun getDigest ()Ljava/lang/String;
+	public final fun getEpochHeight ()J
+	public final fun getMaxSupply ()Ljava/math/BigDecimal;
+	public final fun getMinimumFee ()Ljava/math/BigDecimal;
+	public final fun getNetworkId ()Ljava/lang/String;
+	public final fun getRewardBlock ()Ljava/math/BigDecimal;
+	public final fun getRewardHalvingPeriod ()J
+	public final fun getRewardTailFloor ()Ljava/math/BigDecimal;
+	public final fun getRotatingProducerSeats ()I
+	public final fun getSlotPeriodMs ()J
+	public final fun getTimeSlotDurationMs ()J
+	public final fun getTimeSlotIntervalMs ()J
+	public final fun getTokenActivationHeight ()J
+	public final fun getTokenCreateFee ()Ljava/math/BigDecimal;
+	public final fun getTreasuryAddress ()Ljava/lang/String;
+	public final fun getTreasuryFeeShareBps ()I
+	public final fun getValidatorDeposit ()Ljava/math/BigDecimal;
+	public final fun getValidatorRegistrationFee ()Ljava/math/BigDecimal;
+	public final fun getValidatorsCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/ChainSpecView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/ChainSpecView;
+}
+
+public final class org/janzeer/sdk/rpc/EpochView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/EpochView$Companion;
+	public fun <init> (JJLjava/lang/String;JJJJJLjava/lang/String;ILjava/util/List;)V
+	public final fun component1 ()J
+	public final fun component10 ()I
+	public final fun component11 ()Ljava/util/List;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()J
+	public final fun component5 ()J
+	public final fun component6 ()J
+	public final fun component7 ()J
+	public final fun component8 ()J
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (JJLjava/lang/String;JJJJJLjava/lang/String;ILjava/util/List;)Lorg/janzeer/sdk/rpc/EpochView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/EpochView;JJLjava/lang/String;JJJJJLjava/lang/String;ILjava/util/List;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/EpochView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/EpochView;
+	public final fun getActiveAnchorCount ()I
+	public final fun getCurrentSlot ()J
+	public final fun getCurrentSlotOwner ()Ljava/lang/String;
+	public final fun getEpochHeight ()J
+	public final fun getGenesisHash ()Ljava/lang/String;
+	public final fun getGenesisHeight ()J
+	public final fun getIndex ()J
+	public final fun getNextGenesisHeight ()J
+	public final fun getSlotPeriodMs ()J
+	public final fun getStartTimestamp ()J
+	public final fun getValidators ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/EpochView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/EpochView;
+}
+
+public final class org/janzeer/sdk/rpc/FeeEstimate {
+	public static final field Companion Lorg/janzeer/sdk/rpc/FeeEstimate$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;Z)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/math/BigDecimal;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;Z)Lorg/janzeer/sdk/rpc/FeeEstimate;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/FeeEstimate;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/lang/String;ZILjava/lang/Object;)Lorg/janzeer/sdk/rpc/FeeEstimate;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/FeeEstimate;
+	public final fun getFee ()Ljava/math/BigDecimal;
+	public final fun getFeeMarket ()Z
+	public final fun getKind ()Ljava/lang/String;
+	public final fun getRule ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/FeeEstimate$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/FeeEstimate;
+}
+
+public final class org/janzeer/sdk/rpc/JanzeerRpc : org/janzeer/sdk/rpc/RpcMethods, java/io/Closeable {
+	public static final field Companion Lorg/janzeer/sdk/rpc/JanzeerRpc$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;)V
+	public fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Ljava/util/Map;)V
+	public fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Ljava/util/Map;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Ljava/util/Map;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun batch (Ljava/util/List;)Ljava/util/List;
+	public fun call (Ljava/lang/String;Ljava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+	public fun close ()V
+	public final fun getUrl ()Ljava/lang/String;
+	public static final fun normalizeRpcUrl (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/JanzeerRpc$Companion {
+	public final fun normalizeRpcUrl (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/JanzeerRpcWs : org/janzeer/sdk/rpc/RpcMethods, java/io/Closeable {
+	public static final field Companion Lorg/janzeer/sdk/rpc/JanzeerRpcWs$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJLkotlin/jvm/functions/Function1;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun call (Ljava/lang/String;Ljava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+	public fun close ()V
+	public static final fun connect (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public static final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public static final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;Z)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public static final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJ)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public static final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJ)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public static final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJJ)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public static final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJJLkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun getConnected ()Z
+	public final fun getUrl ()Ljava/lang/String;
+	public static final fun normalizeWsUrl (Ljava/lang/String;)Ljava/lang/String;
+	public final fun subscribeAddressActivity (Ljava/util/List;Lkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/rpc/Subscription;
+	public final fun subscribeNewBlocks (Lorg/janzeer/sdk/rpc/NewBlocksParams;Lkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/rpc/Subscription;
+}
+
+public final class org/janzeer/sdk/rpc/JanzeerRpcWs$Companion {
+	public final fun connect (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;Z)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJ)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJ)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJJ)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun connect (Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJJLkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public static synthetic fun connect$default (Lorg/janzeer/sdk/rpc/JanzeerRpcWs$Companion;Ljava/lang/String;Lokhttp3/OkHttpClient;ZJJJLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/JanzeerRpcWs;
+	public final fun normalizeWsUrl (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/NewBlocksParams {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;)V
+	public fun <init> (Ljava/lang/Long;Z)V
+	public synthetic fun <init> (Ljava/lang/Long;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Z
+	public final fun copy (Ljava/lang/Long;Z)Lorg/janzeer/sdk/rpc/NewBlocksParams;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/NewBlocksParams;Ljava/lang/Long;ZILjava/lang/Object;)Lorg/janzeer/sdk/rpc/NewBlocksParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFromHeight ()Ljava/lang/Long;
+	public final fun getIncludeTransactions ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/NodeInfoView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/NodeInfoView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JJLjava/lang/String;ZZILjava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()J
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Z
+	public final fun component13 ()Z
+	public final fun component14 ()I
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()J
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JJLjava/lang/String;ZZILjava/lang/String;)Lorg/janzeer/sdk/rpc/NodeInfoView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/NodeInfoView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JJLjava/lang/String;ZZILjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/NodeInfoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/NodeInfoView;
+	public final fun getApiVersion ()Ljava/lang/String;
+	public final fun getChainCorrupt ()Z
+	public final fun getChainId ()Ljava/lang/String;
+	public final fun getChainSpecDigest ()Ljava/lang/String;
+	public final fun getEpoch ()J
+	public final fun getFinality ()Ljava/lang/String;
+	public final fun getNodeKey ()Ljava/lang/String;
+	public final fun getPeers ()I
+	public final fun getSyncStatus ()Ljava/lang/String;
+	public final fun getSynchronized ()Z
+	public final fun getTipHash ()Ljava/lang/String;
+	public final fun getTipHeight ()J
+	public final fun getTipTimestamp ()J
+	public final fun getVersion ()Ljava/lang/String;
+	public final fun getWireProtocolVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/NodeInfoView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/NodeInfoView;
+}
+
+public final class org/janzeer/sdk/rpc/PageParams {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;)V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Integer;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun copy (Ljava/lang/Integer;Ljava/lang/Integer;)Lorg/janzeer/sdk/rpc/PageParams;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/PageParams;Ljava/lang/Integer;Ljava/lang/Integer;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/PageParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPage ()Ljava/lang/Integer;
+	public final fun getSize ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/ReceiptView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/ReceiptView$Companion;
+	public fun <init> (ZLjava/util/List;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (ZLjava/util/List;)Lorg/janzeer/sdk/rpc/ReceiptView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/ReceiptView;ZLjava/util/List;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/ReceiptView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/ReceiptView;
+	public final fun getResults ()Ljava/util/List;
+	public final fun getSuccessful ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/ReceiptView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/ReceiptView;
+}
+
+public final class org/janzeer/sdk/rpc/RpcMethodSpec {
+	public static final field Companion Lorg/janzeer/sdk/rpc/RpcMethodSpec$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Lorg/janzeer/sdk/rpc/RpcMethodSpec;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/RpcMethodSpec;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/RpcMethodSpec;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/RpcMethodSpec;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getParams ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/RpcMethodSpec$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/RpcMethodSpec;
+}
+
+public abstract class org/janzeer/sdk/rpc/RpcMethods : org/janzeer/sdk/rpc/RpcTransport {
+	public fun <init> ()V
+	public final fun estimateFee (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/FeeEstimate;
+	public final fun getAccount (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/AccountView;
+	public final fun getActiveValidators ()Ljava/util/List;
+	public final fun getBalance (Ljava/lang/String;)Ljava/math/BigDecimal;
+	public final fun getBlockByHash (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/BlockView;
+	public final fun getBlockByHash (Ljava/lang/String;Z)Lorg/janzeer/sdk/rpc/BlockView;
+	public static synthetic fun getBlockByHash$default (Lorg/janzeer/sdk/rpc/RpcMethods;Ljava/lang/String;ZILjava/lang/Object;)Lorg/janzeer/sdk/rpc/BlockView;
+	public final fun getBlockByNumber (J)Lorg/janzeer/sdk/rpc/BlockView;
+	public final fun getBlockByNumber (JZ)Lorg/janzeer/sdk/rpc/BlockView;
+	public static synthetic fun getBlockByNumber$default (Lorg/janzeer/sdk/rpc/RpcMethods;JZILjava/lang/Object;)Lorg/janzeer/sdk/rpc/BlockView;
+	public final fun getBlocks (JJ)Ljava/util/List;
+	public final fun getBlocks (JJZ)Ljava/util/List;
+	public static synthetic fun getBlocks$default (Lorg/janzeer/sdk/rpc/RpcMethods;JJZILjava/lang/Object;)Ljava/util/List;
+	public final fun getChainSpec ()Lorg/janzeer/sdk/rpc/ChainSpecView;
+	public final fun getEpoch ()Lorg/janzeer/sdk/rpc/EpochView;
+	public final fun getInfo ()Lorg/janzeer/sdk/rpc/NodeInfoView;
+	public final fun getNonce (Ljava/lang/String;)J
+	public final fun getStats ()Lorg/janzeer/sdk/rpc/StatsView;
+	public final fun getTip ()Lorg/janzeer/sdk/rpc/BlockView;
+	public final fun getToken (Ljava/lang/String;)Lorg/janzeer/sdk/client/Token;
+	public final fun getTokenBalances (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun getTokenBalances (Ljava/lang/String;Lorg/janzeer/sdk/rpc/PageParams;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public static synthetic fun getTokenBalances$default (Lorg/janzeer/sdk/rpc/RpcMethods;Ljava/lang/String;Lorg/janzeer/sdk/rpc/PageParams;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun getTokenHolders (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun getTokenHolders (Ljava/lang/String;Lorg/janzeer/sdk/rpc/PageParams;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public static synthetic fun getTokenHolders$default (Lorg/janzeer/sdk/rpc/RpcMethods;Ljava/lang/String;Lorg/janzeer/sdk/rpc/PageParams;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun getTransactionByHash (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/TxView;
+	public final fun getTransactionsByAddress (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/AddressTransactions;
+	public final fun getTransactionsByAddress (Ljava/lang/String;Lorg/janzeer/sdk/rpc/PageParams;)Lorg/janzeer/sdk/rpc/AddressTransactions;
+	public static synthetic fun getTransactionsByAddress$default (Lorg/janzeer/sdk/rpc/RpcMethods;Ljava/lang/String;Lorg/janzeer/sdk/rpc/PageParams;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/AddressTransactions;
+	public final fun getValidator (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/ValidatorInfo;
+	public final fun listTokens ()Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun listTokens (Lorg/janzeer/sdk/rpc/PageParams;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public static synthetic fun listTokens$default (Lorg/janzeer/sdk/rpc/RpcMethods;Lorg/janzeer/sdk/rpc/PageParams;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun listValidators ()Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun listValidators (Lorg/janzeer/sdk/rpc/PageParams;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public static synthetic fun listValidators$default (Lorg/janzeer/sdk/rpc/RpcMethods;Lorg/janzeer/sdk/rpc/PageParams;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun methods ()Ljava/util/List;
+	public final fun send (Lorg/janzeer/sdk/tx/SignedTx;)Lorg/janzeer/sdk/rpc/SendResult;
+	public final fun sendExitValidator (Ljava/util/Map;)Lorg/janzeer/sdk/rpc/SendResult;
+	public final fun sendRawTransaction (Lorg/janzeer/sdk/TxType;Ljava/util/Map;)Lorg/janzeer/sdk/rpc/SendResult;
+	public final fun sendRegisterValidator (Ljava/util/Map;)Lorg/janzeer/sdk/rpc/SendResult;
+	public final fun sendToken (Ljava/util/Map;)Lorg/janzeer/sdk/rpc/SendResult;
+	public final fun sendTransfer (Ljava/util/Map;)Lorg/janzeer/sdk/rpc/SendResult;
+	public final fun waitForFinality (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/TxView;
+	public final fun waitForFinality (Ljava/lang/String;J)Lorg/janzeer/sdk/rpc/TxView;
+	public static synthetic fun waitForFinality$default (Lorg/janzeer/sdk/rpc/RpcMethods;Ljava/lang/String;JILjava/lang/Object;)Lorg/janzeer/sdk/rpc/TxView;
+}
+
+public final class org/janzeer/sdk/rpc/RpcPage {
+	public static final field Companion Lorg/janzeer/sdk/rpc/RpcPage$Companion;
+	public fun <init> (JIIILjava/util/List;)V
+	public final fun component1 ()J
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (JIIILjava/util/List;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/RpcPage;JIIILjava/util/List;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/rpc/RpcPage;
+	public final fun getList ()Ljava/util/List;
+	public final fun getPage ()I
+	public final fun getPageSize ()I
+	public final fun getTotal ()J
+	public final fun getTotalPages ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/RpcPage$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/functions/Function1;)Lorg/janzeer/sdk/rpc/RpcPage;
+}
+
+public abstract interface class org/janzeer/sdk/rpc/RpcTransport {
+	public abstract fun call (Ljava/lang/String;Ljava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+	public static synthetic fun call$default (Lorg/janzeer/sdk/rpc/RpcTransport;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+}
+
+public final class org/janzeer/sdk/rpc/RpcTransport$DefaultImpls {
+	public static synthetic fun call$default (Lorg/janzeer/sdk/rpc/RpcTransport;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Object;)Lkotlinx/serialization/json/JsonElement;
+}
+
+public final class org/janzeer/sdk/rpc/SendResult {
+	public static final field Companion Lorg/janzeer/sdk/rpc/SendResult$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/rpc/SendResult;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/SendResult;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/SendResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/SendResult;
+	public final fun getHash ()Ljava/lang/String;
+	public final fun getStatus ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/SendResult$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/SendResult;
+}
+
+public final class org/janzeer/sdk/rpc/StatsView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/StatsView$Companion;
+	public fun <init> (IJJIJLjava/math/BigDecimal;JJILjava/math/BigDecimal;Ljava/math/BigDecimal;)V
+	public final fun component1 ()I
+	public final fun component10 ()Ljava/math/BigDecimal;
+	public final fun component11 ()Ljava/math/BigDecimal;
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()I
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/math/BigDecimal;
+	public final fun component7 ()J
+	public final fun component8 ()J
+	public final fun component9 ()I
+	public final fun copy (IJJIJLjava/math/BigDecimal;JJILjava/math/BigDecimal;Ljava/math/BigDecimal;)Lorg/janzeer/sdk/rpc/StatsView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/StatsView;IJJIJLjava/math/BigDecimal;JJILjava/math/BigDecimal;Ljava/math/BigDecimal;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/StatsView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/StatsView;
+	public final fun getBlockProductionTimeMs ()J
+	public final fun getBlocksCount ()J
+	public final fun getCirculatingSupply ()Ljava/math/BigDecimal;
+	public final fun getEpoch ()J
+	public final fun getEpochStart ()J
+	public final fun getMaxSupply ()Ljava/math/BigDecimal;
+	public final fun getNodesCount ()I
+	public final fun getPendingTransactions ()I
+	public final fun getTransactionsCount ()J
+	public final fun getTransactionsPerSecond ()Ljava/math/BigDecimal;
+	public final fun getValidatorsCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/StatsView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/StatsView;
+}
+
+public final class org/janzeer/sdk/rpc/Subscription {
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKind ()Ljava/lang/String;
+	public final fun unsubscribe ()Z
+}
+
+public final class org/janzeer/sdk/rpc/TxStatus : java/lang/Enum {
+	public static final field Companion Lorg/janzeer/sdk/rpc/TxStatus$Companion;
+	public static final field FINAL Lorg/janzeer/sdk/rpc/TxStatus;
+	public static final field PENDING Lorg/janzeer/sdk/rpc/TxStatus;
+	public static final field UNKNOWN Lorg/janzeer/sdk/rpc/TxStatus;
+	public static final fun from (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/TxStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getWireName ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/TxStatus;
+	public static fun values ()[Lorg/janzeer/sdk/rpc/TxStatus;
+}
+
+public final class org/janzeer/sdk/rpc/TxStatus$Companion {
+	public final fun from (Ljava/lang/String;)Lorg/janzeer/sdk/rpc/TxStatus;
+}
+
+public final class org/janzeer/sdk/rpc/TxView {
+	public static final field Companion Lorg/janzeer/sdk/rpc/TxView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/rpc/TxStatus;Ljava/lang/Long;Ljava/math/BigDecimal;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lorg/janzeer/sdk/rpc/ReceiptView;Ljava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Z)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/Long;
+	public final fun component12 ()Lorg/janzeer/sdk/rpc/ReceiptView;
+	public final fun component13 ()Ljava/math/BigDecimal;
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component16 ()Ljava/lang/String;
+	public final fun component17 ()Lorg/janzeer/sdk/TokenOp;
+	public final fun component18 ()Ljava/lang/String;
+	public final fun component19 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component20 ()Ljava/lang/String;
+	public final fun component21 ()Ljava/lang/Integer;
+	public final fun component22 ()Ljava/math/BigInteger;
+	public final fun component23 ()Ljava/math/BigInteger;
+	public final fun component24 ()Ljava/lang/String;
+	public final fun component25 ()Ljava/lang/String;
+	public final fun component26 ()Ljava/lang/Long;
+	public final fun component27 ()Z
+	public final fun component3 ()Lorg/janzeer/sdk/rpc/TxStatus;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/math/BigDecimal;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/rpc/TxStatus;Ljava/lang/Long;Ljava/math/BigDecimal;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lorg/janzeer/sdk/rpc/ReceiptView;Ljava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Z)Lorg/janzeer/sdk/rpc/TxView;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/TxView;Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/rpc/TxStatus;Ljava/lang/Long;Ljava/math/BigDecimal;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lorg/janzeer/sdk/rpc/ReceiptView;Ljava/math/BigDecimal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZILjava/lang/Object;)Lorg/janzeer/sdk/rpc/TxView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/TxView;
+	public final fun getAmount ()Ljava/math/BigDecimal;
+	public final fun getBlockHash ()Ljava/lang/String;
+	public final fun getBlockHeight ()Ljava/lang/Long;
+	public final fun getCap ()Ljava/math/BigInteger;
+	public final fun getData ()Ljava/lang/String;
+	public final fun getDecimals ()Ljava/lang/Integer;
+	public final fun getFee ()Ljava/math/BigDecimal;
+	public final fun getHash ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getNonce ()Ljava/lang/Long;
+	public final fun getOffenderKey ()Ljava/lang/String;
+	public final fun getOp ()Lorg/janzeer/sdk/TokenOp;
+	public final fun getReceipt ()Lorg/janzeer/sdk/rpc/ReceiptView;
+	public final fun getRecipient ()Ljava/lang/String;
+	public final fun getRecipientAddress ()Ljava/lang/String;
+	public final fun getSenderAddress ()Ljava/lang/String;
+	public final fun getSenderPublicKey ()Ljava/lang/String;
+	public final fun getSenderSignature ()Ljava/lang/String;
+	public final fun getSlot ()Ljava/lang/Long;
+	public final fun getStatus ()Lorg/janzeer/sdk/rpc/TxStatus;
+	public final fun getSymbol ()Ljava/lang/String;
+	public final fun getTimedOut ()Z
+	public final fun getTimestamp ()Ljava/lang/Long;
+	public final fun getTokenAmount ()Ljava/math/BigInteger;
+	public final fun getTokenId ()Ljava/lang/String;
+	public final fun getType ()Ljava/lang/String;
+	public final fun getValidatorKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isFinal ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/TxView$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/TxView;
+}
+
+public final class org/janzeer/sdk/rpc/ValidatorInfo {
+	public static final field Companion Lorg/janzeer/sdk/rpc/ValidatorInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lorg/janzeer/sdk/rpc/ValidatorInfo;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/ValidatorInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/ValidatorInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/ValidatorInfo;
+	public final fun getActive ()Ljava/lang/Boolean;
+	public final fun getBanned ()Ljava/lang/Boolean;
+	public final fun getExited ()Ljava/lang/Boolean;
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getRegisteredAt ()Ljava/lang/Long;
+	public final fun getWalletAddress ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/ValidatorInfo$Companion {
+	public final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/rpc/ValidatorInfo;
+}
+
+public abstract class org/janzeer/sdk/rpc/WsEvent {
+}
+
+public final class org/janzeer/sdk/rpc/WsEvent$Closed : org/janzeer/sdk/rpc/WsEvent {
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/String;Z)V
+	public final fun component1 ()Ljava/lang/Integer;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun copy (Ljava/lang/Integer;Ljava/lang/String;Z)Lorg/janzeer/sdk/rpc/WsEvent$Closed;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/WsEvent$Closed;Ljava/lang/Integer;Ljava/lang/String;ZILjava/lang/Object;)Lorg/janzeer/sdk/rpc/WsEvent$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/Integer;
+	public final fun getReason ()Ljava/lang/String;
+	public final fun getWillReconnect ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/WsEvent$Error : org/janzeer/sdk/rpc/WsEvent {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun component1 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/Throwable;)Lorg/janzeer/sdk/rpc/WsEvent$Error;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/WsEvent$Error;Ljava/lang/Throwable;ILjava/lang/Object;)Lorg/janzeer/sdk/rpc/WsEvent$Error;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/rpc/WsEvent$Open : org/janzeer/sdk/rpc/WsEvent {
+	public static final field INSTANCE Lorg/janzeer/sdk/rpc/WsEvent$Open;
+}
+
+public final class org/janzeer/sdk/rpc/WsEvent$Resubscribed : org/janzeer/sdk/rpc/WsEvent {
+	public fun <init> (I)V
+	public final fun component1 ()I
+	public final fun copy (I)Lorg/janzeer/sdk/rpc/WsEvent$Resubscribed;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/rpc/WsEvent$Resubscribed;IILjava/lang/Object;)Lorg/janzeer/sdk/rpc/WsEvent$Resubscribed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

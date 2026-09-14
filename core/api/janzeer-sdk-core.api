@@ -1,0 +1,407 @@
+public final class org/janzeer/sdk/Account {
+	public static final field Companion Lorg/janzeer/sdk/Account$Companion;
+	public synthetic fun <init> ([BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public static final fun fromMnemonic (Ljava/lang/String;)Lorg/janzeer/sdk/Account;
+	public static final fun fromMnemonic (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/Account;
+	public static final fun fromPrivateKey (Ljava/lang/String;)Lorg/janzeer/sdk/Account;
+	public static final fun fromSeed ([B)Lorg/janzeer/sdk/Account;
+	public static final fun fromSeed ([BLjava/lang/String;)Lorg/janzeer/sdk/Account;
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getChecksumAddress ()Ljava/lang/String;
+	public final fun getPrivateKeyHex ()Ljava/lang/String;
+	public final fun getPublicKeyHex ()Ljava/lang/String;
+	public static final fun random ()Lorg/janzeer/sdk/Account;
+	public final fun sign (Ljava/lang/String;)Ljava/lang/String;
+	public final fun signTx (Lorg/janzeer/sdk/tx/UnsignedTx;)Lorg/janzeer/sdk/tx/SignedTx;
+	public fun toString ()Ljava/lang/String;
+	public final fun verify (Ljava/lang/String;Ljava/lang/String;)Z
+}
+
+public final class org/janzeer/sdk/Account$Companion {
+	public final fun fromMnemonic (Ljava/lang/String;)Lorg/janzeer/sdk/Account;
+	public final fun fromMnemonic (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/Account;
+	public static synthetic fun fromMnemonic$default (Lorg/janzeer/sdk/Account$Companion;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/Account;
+	public final fun fromPrivateKey (Ljava/lang/String;)Lorg/janzeer/sdk/Account;
+	public final fun fromSeed ([B)Lorg/janzeer/sdk/Account;
+	public final fun fromSeed ([BLjava/lang/String;)Lorg/janzeer/sdk/Account;
+	public static synthetic fun fromSeed$default (Lorg/janzeer/sdk/Account$Companion;[BLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/Account;
+	public final fun random ()Lorg/janzeer/sdk/Account;
+}
+
+public final class org/janzeer/sdk/Amounts {
+	public static final field INSTANCE Lorg/janzeer/sdk/Amounts;
+	public static final fun add (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+	public static final fun compare (Ljava/lang/Object;Ljava/lang/Object;)I
+	public static final fun formatJnz (Ljava/lang/Object;)Ljava/lang/String;
+	public static final fun formatJnz (Ljava/lang/Object;I)Ljava/lang/String;
+	public static final fun formatJnz (Ljava/lang/Object;IZ)Ljava/lang/String;
+	public static final fun formatJnz (Ljava/lang/Object;IZZ)Ljava/lang/String;
+	public static final fun formatJnz (Ljava/lang/Object;IZZZ)Ljava/lang/String;
+	public static synthetic fun formatJnz$default (Ljava/lang/Object;IZZZILjava/lang/Object;)Ljava/lang/String;
+	public static final fun fromScaledLong (J)Ljava/lang/String;
+	public static final fun isValid (Ljava/lang/Object;)Z
+	public static final fun normalize (Ljava/lang/Object;)Ljava/lang/String;
+	public static final fun parseJnz (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun sub (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+	public static final fun toBigDecimal (Ljava/lang/Object;)Ljava/math/BigDecimal;
+	public static final fun toScaledLong (Ljava/lang/Object;)J
+}
+
+public final class org/janzeer/sdk/Janzeer {
+	public static final field DECIMALS I
+	public static final field INSTANCE Lorg/janzeer/sdk/Janzeer;
+	public static final field MAX_MEMO_BYTES I
+	public static final field MIN_FEE Ljava/lang/String;
+	public static final field MIN_TRANSFER Ljava/lang/String;
+	public static final field NETWORK_ID Ljava/lang/String;
+	public static final field TICKER Ljava/lang/String;
+	public static final field TOKEN_CREATE_FEE Ljava/lang/String;
+	public static final field VALIDATOR_DEPOSIT Ljava/lang/String;
+	public static final field VALIDATOR_FEE Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/Limits {
+	public static final field BLOCK_RANGE I
+	public static final field INSTANCE Lorg/janzeer/sdk/Limits;
+	public static final field PAGE_SIZE I
+	public static final field RPC_BATCH I
+	public static final field SUBSCRIPTIONS_PER_SESSION I
+	public static final field WAIT_FOR_FINALITY_MS J
+	public static final field WATCHED_ADDRESSES I
+}
+
+public final class org/janzeer/sdk/SpecVersion {
+	public static final field API Ljava/lang/String;
+	public static final field INSTANCE Lorg/janzeer/sdk/SpecVersion;
+	public static final field NODE Ljava/lang/String;
+	public static final field PROTOCOL Ljava/lang/String;
+	public static final field VECTORS I
+}
+
+public final class org/janzeer/sdk/TokenOp : java/lang/Enum {
+	public static final field BURN Lorg/janzeer/sdk/TokenOp;
+	public static final field CREATE Lorg/janzeer/sdk/TokenOp;
+	public static final field Companion Lorg/janzeer/sdk/TokenOp$Companion;
+	public static final field MINT Lorg/janzeer/sdk/TokenOp;
+	public static final field SETCAP Lorg/janzeer/sdk/TokenOp;
+	public static final field TRANSFER Lorg/janzeer/sdk/TokenOp;
+	public static final fun fromCode (I)Lorg/janzeer/sdk/TokenOp;
+	public static final fun fromWireName (Ljava/lang/String;)Lorg/janzeer/sdk/TokenOp;
+	public final fun getCode ()I
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getWireName ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lorg/janzeer/sdk/TokenOp;
+	public static fun values ()[Lorg/janzeer/sdk/TokenOp;
+}
+
+public final class org/janzeer/sdk/TokenOp$Companion {
+	public final fun fromCode (I)Lorg/janzeer/sdk/TokenOp;
+	public final fun fromWireName (Ljava/lang/String;)Lorg/janzeer/sdk/TokenOp;
+}
+
+public final class org/janzeer/sdk/TxType : java/lang/Enum {
+	public static final field EXIT_VALIDATOR Lorg/janzeer/sdk/TxType;
+	public static final field REGISTER_VALIDATOR Lorg/janzeer/sdk/TxType;
+	public static final field TOKEN Lorg/janzeer/sdk/TxType;
+	public static final field TRANSFER Lorg/janzeer/sdk/TxType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getRestPath ()Ljava/lang/String;
+	public final fun getRpcMethod ()Ljava/lang/String;
+	public final fun getWireName ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lorg/janzeer/sdk/TxType;
+	public static fun values ()[Lorg/janzeer/sdk/TxType;
+}
+
+public final class org/janzeer/sdk/crypto/Address {
+	public static final field INSTANCE Lorg/janzeer/sdk/crypto/Address;
+	public static final fun fromPublicKey ([B)Ljava/lang/String;
+	public static final fun isChecksumValid (Ljava/lang/String;)Z
+	public static final fun isValid (Ljava/lang/String;)Z
+	public static final fun normalize (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun toChecksum (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/crypto/Bytes {
+	public static final field INSTANCE Lorg/janzeer/sdk/crypto/Bytes;
+	public static final fun concat ([[B)[B
+	public static final fun fromBase64 (Ljava/lang/String;)[B
+	public static final fun fromHex (Ljava/lang/String;)[B
+	public static final fun i64be (J)[B
+	public static final fun lenPrefixed (Ljava/lang/String;)[B
+	public static final fun ser32 (I)[B
+	public static final fun toBase64 ([B)Ljava/lang/String;
+	public static final fun toHex ([B)Ljava/lang/String;
+	public static final fun utf8 (Ljava/lang/String;)[B
+}
+
+public final class org/janzeer/sdk/crypto/Hashes {
+	public static final field INSTANCE Lorg/janzeer/sdk/crypto/Hashes;
+	public static final fun doubleSha256 ([B)[B
+	public static final fun hashPreimage ([B)Ljava/lang/String;
+	public static final fun hmacSha512 ([B[B)[B
+	public static final fun keccak256 ([B)[B
+	public static final fun pbkdf2Sha256 ([B[BII)[B
+	public static final fun pbkdf2Sha512 ([B[BII)[B
+	public static final fun sha256 ([B)[B
+}
+
+public final class org/janzeer/sdk/crypto/Hd {
+	public static final field DEFAULT_PATH Ljava/lang/String;
+	public static final field INSTANCE Lorg/janzeer/sdk/crypto/Hd;
+	public static final field SALT Ljava/lang/String;
+	public static final fun deriveChild (Lorg/janzeer/sdk/crypto/HdNode;I)Lorg/janzeer/sdk/crypto/HdNode;
+	public static final fun deriveDefault ([B)Lorg/janzeer/sdk/crypto/HdNode;
+	public static final fun derivePath ([B)Lorg/janzeer/sdk/crypto/HdNode;
+	public static final fun derivePath ([BLjava/lang/String;)Lorg/janzeer/sdk/crypto/HdNode;
+	public static synthetic fun derivePath$default ([BLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/crypto/HdNode;
+	public static final fun mnemonicToSeed (Ljava/lang/String;)[B
+	public static final fun mnemonicToSeed (Ljava/lang/String;Ljava/lang/String;)[B
+	public static synthetic fun mnemonicToSeed$default (Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)[B
+	public static final fun seedToMasterKey ([B)Lorg/janzeer/sdk/crypto/HdNode;
+}
+
+public final class org/janzeer/sdk/crypto/HdNode {
+	public fun <init> ([B[B)V
+	public final fun getChainCode ()[B
+	public final fun getPriv ()[B
+}
+
+public final class org/janzeer/sdk/crypto/Mnemonic {
+	public static final field INSTANCE Lorg/janzeer/sdk/crypto/Mnemonic;
+	public static final fun fromEntropy ([B)Ljava/lang/String;
+	public static final fun generate ()Ljava/lang/String;
+	public static final fun generate (I)Ljava/lang/String;
+	public static synthetic fun generate$default (IILjava/lang/Object;)Ljava/lang/String;
+	public static final fun getWordlist ()Ljava/util/List;
+	public static final fun normalize (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun toEntropy (Ljava/lang/String;)[B
+	public static final fun toSeed (Ljava/lang/String;)[B
+	public static final fun toSeed (Ljava/lang/String;Ljava/lang/String;)[B
+	public static synthetic fun toSeed$default (Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)[B
+	public static final fun validate (Ljava/lang/String;)Z
+}
+
+public final class org/janzeer/sdk/crypto/Secp256k1 {
+	public static final field INSTANCE Lorg/janzeer/sdk/crypto/Secp256k1;
+	public static final fun getOrder ()Ljava/math/BigInteger;
+	public static final fun isValidPrivateKey (Ljava/lang/String;)Z
+	public static final fun privateToPublic (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun publicKey (Ljava/math/BigInteger;)[B
+	public static final fun randomPrivateKey ()[B
+	public static final fun sign ([BLjava/math/BigInteger;)Ljava/lang/String;
+	public static final fun signHash (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun verifyHash (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+}
+
+public final class org/janzeer/sdk/tx/ExitValidatorFields : org/janzeer/sdk/tx/TxFields {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lorg/janzeer/sdk/tx/ExitValidatorFields;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/tx/ExitValidatorFields;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/ExitValidatorFields;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValidatorKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toBody ()Ljava/util/Map;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/tx/Payloads {
+	public static final field INSTANCE Lorg/janzeer/sdk/tx/Payloads;
+	public static final fun exitValidator (Ljava/lang/String;)[B
+	public static final fun registerValidator (Ljava/lang/Object;Ljava/lang/String;)[B
+	public static final fun token (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)[B
+	public static final fun transactionBytes (JLjava/lang/Object;JLjava/lang/String;[B)[B
+	public static final fun transactionBytes (JLjava/lang/Object;JLjava/lang/String;[BLjava/lang/String;)[B
+	public static synthetic fun transactionBytes$default (JLjava/lang/Object;JLjava/lang/String;[BLjava/lang/String;ILjava/lang/Object;)[B
+	public static final fun transfer (Ljava/lang/Object;Ljava/lang/String;)[B
+	public static final fun transfer (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)[B
+	public static synthetic fun transfer$default (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)[B
+}
+
+public final class org/janzeer/sdk/tx/RegisterValidatorFields : org/janzeer/sdk/tx/TxFields {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/tx/RegisterValidatorFields;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/tx/RegisterValidatorFields;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/RegisterValidatorFields;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmount ()Ljava/lang/String;
+	public final fun getValidatorKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toBody ()Ljava/util/Map;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/tx/SignedTx {
+	public fun <init> (Lorg/janzeer/sdk/tx/UnsignedTx;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getFields ()Lorg/janzeer/sdk/tx/TxFields;
+	public final fun getHash ()Ljava/lang/String;
+	public final fun getRestPath ()Ljava/lang/String;
+	public final fun getRpcMethod ()Ljava/lang/String;
+	public final fun getSenderPublicKey ()Ljava/lang/String;
+	public final fun getSignature ()Ljava/lang/String;
+	public final fun getType ()Lorg/janzeer/sdk/TxType;
+	public final fun getUnsigned ()Lorg/janzeer/sdk/tx/UnsignedTx;
+	public final fun toRestBody ()Ljava/util/Map;
+	public final fun toRpcParams ()Ljava/util/Map;
+}
+
+public final class org/janzeer/sdk/tx/TokenFields : org/janzeer/sdk/tx/TxFields {
+	public fun <init> (Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lorg/janzeer/sdk/TokenOp;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()I
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy (Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/tx/TokenFields;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/tx/TokenFields;Lorg/janzeer/sdk/TokenOp;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/TokenFields;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmount ()Ljava/lang/String;
+	public final fun getCap ()Ljava/lang/String;
+	public final fun getDecimals ()I
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOp ()Lorg/janzeer/sdk/TokenOp;
+	public final fun getRecipient ()Ljava/lang/String;
+	public final fun getSymbol ()Ljava/lang/String;
+	public final fun getTokenId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toBody ()Ljava/util/Map;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/tx/TransferFields : org/janzeer/sdk/tx/TxFields {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/tx/TransferFields;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/tx/TransferFields;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/TransferFields;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmount ()Ljava/lang/String;
+	public final fun getData ()Ljava/lang/String;
+	public final fun getRecipientAddress ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toBody ()Ljava/util/Map;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/tx/TxBuilder {
+	public static final field INSTANCE Lorg/janzeer/sdk/tx/TxBuilder;
+	public static final fun exitValidator (Ljava/lang/String;Ljava/lang/String;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun exitValidator (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun exitValidator (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun exitValidator (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun exitValidator$default (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun registerValidator (Ljava/lang/String;Ljava/lang/String;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun registerValidator (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun registerValidator (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;Ljava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun registerValidator (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun registerValidator (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;Ljava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun registerValidator$default (Ljava/lang/String;Ljava/lang/String;JLjava/lang/Object;Ljava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun transfer$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+}
+
+public final class org/janzeer/sdk/tx/TxBuilder$Token {
+	public static final field INSTANCE Lorg/janzeer/sdk/tx/TxBuilder$Token;
+	public static final fun burn (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun burn (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun burn (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun burn (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun burn$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;Ljava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun create$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun mint (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun mint (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun mint (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun mint (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun mint (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun mint$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;Ljava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun raw (Ljava/lang/String;Lorg/janzeer/sdk/tx/TokenFields;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun raw (Ljava/lang/String;Lorg/janzeer/sdk/tx/TokenFields;JLjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun raw (Ljava/lang/String;Lorg/janzeer/sdk/tx/TokenFields;JLjava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun raw (Ljava/lang/String;Lorg/janzeer/sdk/tx/TokenFields;JLjava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun raw$default (Ljava/lang/String;Lorg/janzeer/sdk/tx/TokenFields;JLjava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun setCap (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun setCap (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun setCap (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun setCap (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun setCap$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;JLjava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/Object;J)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static final fun transfer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/Object;JLjava/lang/String;)Lorg/janzeer/sdk/tx/UnsignedTx;
+	public static synthetic fun transfer$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/Object;JLjava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/tx/UnsignedTx;
+}
+
+public abstract class org/janzeer/sdk/tx/TxFields {
+	public abstract fun toBody ()Ljava/util/Map;
+}
+
+public final class org/janzeer/sdk/tx/UnsignedTx {
+	public fun <init> (Lorg/janzeer/sdk/TxType;JLjava/lang/Object;JLjava/lang/String;Lorg/janzeer/sdk/tx/TxFields;[BLjava/lang/String;)V
+	public synthetic fun <init> (Lorg/janzeer/sdk/TxType;JLjava/lang/Object;JLjava/lang/String;Lorg/janzeer/sdk/tx/TxFields;[BLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFee ()Ljava/lang/String;
+	public final fun getFields ()Lorg/janzeer/sdk/tx/TxFields;
+	public final fun getNetworkId ()Ljava/lang/String;
+	public final fun getNonce ()J
+	public final fun getPayload ()[B
+	public final fun getSenderAddress ()Ljava/lang/String;
+	public final fun getTimestamp ()J
+	public final fun getType ()Lorg/janzeer/sdk/TxType;
+	public final fun hash ()Ljava/lang/String;
+	public final fun preimage ()[B
+	public final fun withSignature (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/tx/SignedTx;
+}
+
+public final class org/janzeer/sdk/vault/Vault {
+	public static final field INSTANCE Lorg/janzeer/sdk/vault/Vault;
+	public static final field ITERATIONS I
+	public static final field VERSION I
+	public static final fun decrypt (Lorg/janzeer/sdk/vault/VaultBlob;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun encrypt (Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/vault/VaultBlob;
+}
+
+public final class org/janzeer/sdk/vault/VaultBlob {
+	public static final field Companion Lorg/janzeer/sdk/vault/VaultBlob$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/janzeer/sdk/vault/VaultBlob;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/vault/VaultBlob;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/janzeer/sdk/vault/VaultBlob;
+	public fun equals (Ljava/lang/Object;)Z
+	public static final fun fromMap (Ljava/util/Map;)Lorg/janzeer/sdk/vault/VaultBlob;
+	public final fun getCt ()Ljava/lang/String;
+	public final fun getIv ()Ljava/lang/String;
+	public final fun getSalt ()Ljava/lang/String;
+	public final fun getV ()I
+	public fun hashCode ()I
+	public final fun toMap ()Ljava/util/Map;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/janzeer/sdk/vault/VaultBlob$Companion {
+	public final fun fromMap (Ljava/util/Map;)Lorg/janzeer/sdk/vault/VaultBlob;
+}
+
+public final class org/janzeer/sdk/vault/VaultException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
