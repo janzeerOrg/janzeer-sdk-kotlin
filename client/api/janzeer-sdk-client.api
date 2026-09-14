@@ -323,17 +323,34 @@ public final class org/janzeer/sdk/client/NetworkException : org/janzeer/sdk/cli
 
 public final class org/janzeer/sdk/client/NodeInfo {
 	public static final field Companion Lorg/janzeer/sdk/client/NodeInfo$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Z
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()I
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;I)Lorg/janzeer/sdk/client/NodeInfo;
-	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/NodeInfo;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lorg/janzeer/sdk/client/NodeInfo;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lorg/janzeer/sdk/client/NodeInfo;
+	public static synthetic fun copy$default (Lorg/janzeer/sdk/client/NodeInfo;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lorg/janzeer/sdk/client/NodeInfo;
 	public fun equals (Ljava/lang/Object;)Z
 	public static final fun from (Lkotlinx/serialization/json/JsonElement;)Lorg/janzeer/sdk/client/NodeInfo;
+	public final fun getApiVersion ()Ljava/lang/String;
+	public final fun getChainSpecDigest ()Ljava/lang/String;
+	public final fun getFaucet ()Z
+	public final fun getGenesisHash ()Ljava/lang/String;
 	public final fun getHost ()Ljava/lang/String;
+	public final fun getNetworkId ()Ljava/lang/String;
 	public final fun getNodeKey ()Ljava/lang/String;
 	public final fun getPort ()I
+	public final fun getProtocolVersion ()Ljava/lang/String;
+	public final fun getSyncStatus ()Ljava/lang/String;
+	public final fun getVersion ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

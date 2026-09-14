@@ -3,6 +3,7 @@ package org.janzeer.sdk.client
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
+import org.janzeer.sdk.Janzeer
 import org.janzeer.sdk.TokenOp
 import org.janzeer.sdk.client.JsonUtil.big
 import org.janzeer.sdk.client.JsonUtil.bool
@@ -48,8 +49,43 @@ public data class TxListQuery @JvmOverloads constructor(
 }
 
 /** `GET info` */
-public data class NodeInfo(val nodeKey: String, val host: String, val port: Int) {
-    public companion object { @JvmStatic public fun from(e: JsonElement?): NodeInfo = reqObj(e).let { NodeInfo(str(it["nodeKey"], "nodeKey"), str(it["host"]), int(it["port"])) } }
+public data class NodeInfo(
+    val nodeKey: String,
+    val host: String,
+    val port: Int,
+    /** `consensus.network-id` — pass it as `networkId` to every builder on a non-mainnet node. */
+    val networkId: String = Janzeer.NETWORK_ID,
+    /** Hash of the epoch-1 genesis block: the chain's identity. */
+    val genesisHash: String = "",
+    /** Consensus rule-set + genesis digest exchanged in the P2P handshake. */
+    val chainSpecDigest: String = "",
+    /** Node software version. */
+    val version: String = "",
+    /** REST/JSON-RPC API version. */
+    val apiVersion: String = "",
+    /** P2P wire protocol version. */
+    val protocolVersion: String = "",
+    /** `SYNCHRONIZED`, `PROCESSING` or `NOT_SYNCHRONIZED`. */
+    val syncStatus: String = "",
+    /** True when the node runs a testnet faucet (`POST /api/v1/faucet`). */
+    val faucet: Boolean = false
+) {
+    public companion object {
+        @JvmStatic public fun from(e: JsonElement?): NodeInfo = reqObj(e).let {
+            NodeInfo(
+                str(it["nodeKey"], "nodeKey"), str(it["host"]), int(it["port"]),
+                // fields added by node 0.0.3 — tolerate an older node
+                networkId = it["networkId"]?.let { v -> str(v) } ?: Janzeer.NETWORK_ID,
+                genesisHash = it["genesisHash"]?.let { v -> str(v) } ?: "",
+                chainSpecDigest = it["chainSpecDigest"]?.let { v -> str(v) } ?: "",
+                version = it["version"]?.let { v -> str(v) } ?: "",
+                apiVersion = it["apiVersion"]?.let { v -> str(v) } ?: "",
+                protocolVersion = it["protocolVersion"]?.let { v -> str(v) } ?: "",
+                syncStatus = it["syncStatus"]?.let { v -> str(v) } ?: "",
+                faucet = it["faucet"]?.let { v -> bool(v) } ?: false
+            )
+        }
+    }
 }
 
 /** `GET info/version` */

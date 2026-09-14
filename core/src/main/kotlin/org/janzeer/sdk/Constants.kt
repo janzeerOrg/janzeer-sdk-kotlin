@@ -25,11 +25,11 @@ public object Janzeer {
 /** The node / API / wire-protocol versions this SDK release was built and tested against. */
 public object SpecVersion {
     /** `GET info/version` → `version` */
-    public const val NODE: String = "0.0.2"
+    public const val NODE: String = "0.0.3"
     /** REST envelope `version` and JSON-RPC `apiVersion` */
     public const val API: String = "1.1.0"
     /** peer-to-peer wire protocol (informational) */
-    public const val PROTOCOL: String = "3.1.0"
+    public const val PROTOCOL: String = "3.2.0"
     /** conformance vectors format consumed by this SDK's tests */
     public const val VECTORS: Int = 2
 }

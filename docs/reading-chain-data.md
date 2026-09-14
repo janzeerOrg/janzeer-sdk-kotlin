@@ -11,7 +11,7 @@ val client = JanzeerClient("https://node.example.org")   // "/api/v1/" is append
 ## Node
 
 ```kotlin
-client.info();          // { nodeKey, host, port }
+client.info();          // { nodeKey, host, port, networkId, genesisHash, chainSpecDigest, version, apiVersion, protocolVersion, syncStatus, faucet }
 client.version();       // { version: '0.0.2', protocolVersion: '1.1.0' }
 client.uptime();        // ms
 client.explorerInfo();  // counts, TPS, epoch, supply

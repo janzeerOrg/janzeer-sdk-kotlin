@@ -20,6 +20,20 @@ transactions before the first is final: nonce `n`, `n+1`, `n+2`… A gap or a re
 
 Sending the *same* signed transaction twice is harmless: the node answers `PENDING` again (idempotent by hash).
 
+## Network id — mainnet vs testnet
+
+Every transaction is signed for one network: `consensus.network-id` is the first field of the preimage, so a
+transaction built for `janzeer` (mainnet) is rejected by a `janzeer-testnet` node and vice versa. The builders default
+to `NETWORK_ID` (`"janzeer"`); when your app can point at a testnet, read the id from the node once and pass it to
+every builder:
+
+```kotlin
+val info = client.info()                         // networkId, genesisHash, version, syncStatus, faucet, …
+val tx = acct.signTx(TxBuilder.transfer(from = acct.address, to = to, amount = "1.25", nonce = nonce, networkId = info.networkId))
+```
+
+`info.faucet` is `true` on a testnet node that runs a faucet (`POST /api/v1/faucet`).
+
 ## Fees and limits
 
 | Transaction | Fee | Other rule |

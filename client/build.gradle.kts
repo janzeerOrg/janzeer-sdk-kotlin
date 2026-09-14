@@ -34,7 +34,7 @@ val e2eTest by tasks.registering(Test::class) {
     testClassesDirs = sourceSets["e2eTest"].output.classesDirs
     classpath = sourceSets["e2eTest"].runtimeClasspath
     useJUnitPlatform()
-    for (k in listOf("janzeer.node.url", "janzeer.rpc.url", "janzeer.ws.url", "janzeer.e2e.mnemonic", "janzeer.e2e.recipient")) {
+    for (k in listOf("janzeer.node.url", "janzeer.rpc.url", "janzeer.ws.url", "janzeer.e2e.mnemonic", "janzeer.e2e.recipient", "janzeer.e2e.networkId")) {
         val env = System.getenv(k.uppercase().replace('.', '_'))
         val prop = System.getProperty(k) ?: env
         if (prop != null) systemProperty(k, prop)
