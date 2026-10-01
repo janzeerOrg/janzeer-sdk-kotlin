@@ -16,6 +16,14 @@ dependencies {
 }
 ```
 
+> **Not on Maven Central yet.** The artifacts follow shortly after the mainnet launch. Until then, build them into your
+> local Maven repository (JDK 17) and add `mavenLocal()` to your repositories:
+>
+> ```bash
+> git clone https://github.com/janzeerorg/janzeer-sdk-kotlin && cd janzeer-sdk-kotlin
+> ./gradlew publishToMavenLocal
+> ```
+
 ## 60-second quickstart
 
 ```kotlin
