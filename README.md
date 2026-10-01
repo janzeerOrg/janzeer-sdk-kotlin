@@ -21,7 +21,7 @@ dependencies {
 >
 > ```bash
 > git clone https://github.com/janzeerorg/janzeer-sdk-kotlin && cd janzeer-sdk-kotlin
-> ./gradlew publishToMavenLocal
+> ./gradlew publishToMavenLocal -PRELEASE_SIGNING_ENABLED=false
 > ```
 
 ## 60-second quickstart
