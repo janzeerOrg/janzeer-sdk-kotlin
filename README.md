@@ -76,7 +76,7 @@ JVM 11+ (built with JDK 17), Android API 26+. Kotlin 2.x or plain Java.
 
 | SDK | Node | REST envelope `version` | Wire protocol | Vectors |
 |---|---|---|---|---|
-| 0.1.x | 0.1.1 | 1.1.0 | 3.4.0 | v2 |
+| 0.1.x | 0.1.2 | 1.1.0 | 3.4.0 | v2 |
 
 `SpecVersion` carries these values; the e2e test checks them against the node on the first call.
 
