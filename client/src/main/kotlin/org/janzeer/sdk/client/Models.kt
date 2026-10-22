@@ -67,7 +67,7 @@ public data class NodeInfo(
     val protocolVersion: String = "",
     /** `SYNCHRONIZED`, `PROCESSING` or `NOT_SYNCHRONIZED`. */
     val syncStatus: String = "",
-    /** True when the node runs a testnet faucet (`POST /api/v1/faucet`). */
+    /** True when the node runs a faucet (`POST /api/v1/faucet`) — only on a private test network, never on the mainnet. */
     val faucet: Boolean = false
 ) {
     public companion object {

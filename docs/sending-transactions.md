@@ -20,11 +20,11 @@ transactions before the first is final: nonce `n`, `n+1`, `n+2`… A gap or a re
 
 Sending the *same* signed transaction twice is harmless: the node answers `PENDING` again (idempotent by hash).
 
-## Network id — mainnet vs testnet
+## Network id — mainnet vs a private test network
 
 Every transaction is signed for one network: `consensus.network-id` is the first field of the preimage, so a
-transaction built for `janzeer` (mainnet) is rejected by a `janzeer-testnet` node and vice versa. The builders default
-to `NETWORK_ID` (`"janzeer"`); when your app can point at a testnet, read the id from the node once and pass it to
+transaction built for `janzeer` (mainnet) is rejected by a node of a private test network (`janzeer-testnet`) and vice versa — there is no public testnet. The builders default
+to `NETWORK_ID` (`"janzeer"`); when your app can point at a private test network, read the id from the node once and pass it to
 every builder:
 
 ```kotlin
