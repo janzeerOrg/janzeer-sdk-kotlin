@@ -25,7 +25,7 @@ public object Janzeer {
 /** The node / API / wire-protocol versions this SDK release was built and tested against. */
 public object SpecVersion {
     /** `GET info/version` → `version` */
-    public const val NODE: String = "0.1.7"
+    public const val NODE: String = "0.1.8"
     /** REST envelope `version` and JSON-RPC `apiVersion` */
     public const val API: String = "1.1.0"
     /** peer-to-peer wire protocol (informational) */
