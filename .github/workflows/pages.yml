@@ -1,9 +1,11 @@
-# Publishes the Dokka API reference to GitHub Pages (https://janzeerorg.github.io/janzeer-sdk-kotlin/) on every GitHub release,
-# or by hand from the Actions tab. Kept apart from publish.yml so a Pages hiccup never needs a Maven Central re-run and vice versa.
+# Publishes the Dokka API reference to GitHub Pages (https://janzeerorg.github.io/janzeer-sdk-kotlin/) on every push to master
+# (a release is always cut from master, so the reference matches the newest release), or by hand from the Actions tab. Kept apart
+# from publish.yml so a Pages hiccup never needs a Maven Central re-run and vice versa. Not on the `release` event: the github-pages
+# environment only accepts deployments from the default branch, and a release run carries the tag ref (rejected before step 1, 2026-10-28).
 name: pages
 on:
-  release:
-    types: [published]
+  push:
+    branches: [master]
   workflow_dispatch:
 concurrency:
   group: pages
