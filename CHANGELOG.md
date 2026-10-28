@@ -3,7 +3,9 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
-## Unreleased
+## 0.1.3 — 2026-10-28
+
+Verified against node **0.1.10** (API 1.1.0 / protocol 3.4.0).
 
 - `SpecVersion.PROTOCOL` now says **3.4.0**, the wire protocol the node has run since 0.1.0 (0.1.2 shipped 3.2.0; informational only).
 - The Dokka reference is published to GitHub Pages by its own `pages` workflow (dispatchable), apart from the Maven Central release.
