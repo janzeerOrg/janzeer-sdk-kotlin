@@ -1,3 +1,8 @@
+# Publishes org.janzeer:janzeer-sdk-core and :janzeer-sdk-client to Maven Central (Sonatype Central Portal) and the Dokka
+# reference to GitHub Pages when a GitHub release is published. The release tag must be v<version> with <version> == the
+# `version` in build.gradle.kts. Secrets (repository settings): MAVEN_CENTRAL_USERNAME / MAVEN_CENTRAL_PASSWORD (a Central
+# Portal user token) and SIGNING_KEY / SIGNING_KEY_PASSWORD (an ASCII-armored GPG secret key whose public key is on
+# keys.openpgp.org). Signing happens in the runner's memory; nothing is written to the repository.
 name: publish
 on:
   release:
@@ -5,15 +10,23 @@ on:
 jobs:
   central:
     runs-on: ubuntu-latest
+    environment:
+      name: maven-central
+      url: https://central.sonatype.com/namespace/org.janzeer
     steps:
       - uses: actions/checkout@v4
+      - name: tag matches build.gradle.kts version
+        run: |
+          version=$(sed -n 's/^[[:space:]]*version = "\([^"]*\)"/\1/p' build.gradle.kts | head -1)
+          [ "${{ github.event.release.tag_name }}" = "v$version" ] || { echo "release tag ${{ github.event.release.tag_name }} != v$version"; exit 1; }
+          echo "janzeer-sdk $version"
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew build --no-daemon
-      - run: ./gradlew publishAllPublicationsToMavenCentralRepository --no-daemon
+      - run: ./gradlew publishAndReleaseToMavenCentral --no-daemon --no-configuration-cache
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}

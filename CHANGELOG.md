@@ -5,7 +5,14 @@ All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](htt
 
 ## Unreleased
 
-- Verified against node **0.1.0** (P2P protocol 3.4.0): `SPEC_VERSION.node` bumped from 0.0.3. No API change for SDK users. New node rule worth knowing: a transaction's `timestamp` must be within 60 s ahead / 6 h behind the node's clock — sign right before you send.
+## 0.1.2 — 2026-10-28
+
+First release on Maven Central (`org.janzeer:janzeer-sdk-core`, `org.janzeer:janzeer-sdk-client`).
+
+### Changed
+- `SpecVersion`: node **0.1.10** (API 1.1.0, protocol 3.4.0), the mainnet release line; the SDK was verified against every node release from 0.1.0 to 0.1.10. No API change for SDK users.
+- Documentation: there is no public testnet or faucet; wording says "private test network".
+- New node rule worth knowing: a transaction's `timestamp` must be within 60 s ahead / 6 h behind the node's clock — sign right before you send.
 
 ## Versioning policy
 

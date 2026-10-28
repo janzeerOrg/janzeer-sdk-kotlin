@@ -11,18 +11,19 @@ process, the node only verifies.
 
 ```kotlin
 dependencies {
-    implementation("org.janzeer:janzeer-sdk-client:0.1.1")   // REST + JSON-RPC + WS (pulls janzeer-sdk-core)
-    // implementation("org.janzeer:janzeer-sdk-core:0.1.1")  // keys, signing, builders only (no networking)
+    implementation("org.janzeer:janzeer-sdk-client:0.1.2")   // REST + JSON-RPC + WS (pulls janzeer-sdk-core)
+    // implementation("org.janzeer:janzeer-sdk-core:0.1.2")  // keys, signing, builders only (no networking)
 }
 ```
 
-> **Not on Maven Central yet.** The artifacts follow shortly after the mainnet launch. Until then, build them into your
-> local Maven repository (JDK 17) and add `mavenLocal()` to your repositories:
->
-> ```bash
-> git clone https://github.com/janzeerorg/janzeer-sdk-kotlin && cd janzeer-sdk-kotlin
-> ./gradlew publishToMavenLocal -PRELEASE_SIGNING_ENABLED=false
-> ```
+Releases are published to Maven Central from this repository's GitHub releases (the `publish` workflow signs the artifacts in
+the runner; see [CHANGELOG.md](CHANGELOG.md)). To build the SDK from source instead, publish it into your local Maven
+repository (JDK 17) and add `mavenLocal()` to your repositories:
+
+```bash
+git clone https://github.com/janzeerorg/janzeer-sdk-kotlin && cd janzeer-sdk-kotlin
+./gradlew publishToMavenLocal -PRELEASE_SIGNING_ENABLED=false
+```
 
 ## 60-second quickstart
 
