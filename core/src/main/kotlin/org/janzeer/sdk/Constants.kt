@@ -29,7 +29,7 @@ public object SpecVersion {
     /** REST envelope `version` and JSON-RPC `apiVersion` */
     public const val API: String = "1.1.0"
     /** peer-to-peer wire protocol (informational) */
-    public const val PROTOCOL: String = "3.2.0"
+    public const val PROTOCOL: String = "3.4.0"
     /** conformance vectors format consumed by this SDK's tests */
     public const val VECTORS: Int = 2
 }

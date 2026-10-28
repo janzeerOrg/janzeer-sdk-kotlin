@@ -5,6 +5,9 @@ All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](htt
 
 ## Unreleased
 
+- `SpecVersion.PROTOCOL` now says **3.4.0**, the wire protocol the node has run since 0.1.0 (0.1.2 shipped 3.2.0; informational only).
+- The Dokka reference is published to GitHub Pages by its own `pages` workflow (dispatchable), apart from the Maven Central release.
+
 ## 0.1.2 — 2026-10-28
 
 First release on Maven Central (`org.janzeer:janzeer-sdk-core`, `org.janzeer:janzeer-sdk-client`).
