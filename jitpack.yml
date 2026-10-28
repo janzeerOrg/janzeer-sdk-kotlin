@@ -1,0 +1,8 @@
+# JitPack (https://jitpack.io) builds this repository on demand from a tag, as a fallback to Maven Central:
+#   repositories { maven("https://jitpack.io") }
+#   implementation("com.github.janzeerOrg.janzeer-sdk-kotlin:janzeer-sdk-client:v0.1.2")
+# Artifacts are unsigned there (the signing key never leaves the maintainer's machine); Maven Central carries the signed ones.
+jdk:
+  - openjdk17
+install:
+  - ./gradlew publishToMavenLocal -PRELEASE_SIGNING_ENABLED=false --no-daemon

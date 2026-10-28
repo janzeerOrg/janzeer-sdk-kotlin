@@ -25,6 +25,14 @@ git clone https://github.com/janzeerorg/janzeer-sdk-kotlin && cd janzeer-sdk-kot
 ./gradlew publishToMavenLocal -PRELEASE_SIGNING_ENABLED=false
 ```
 
+Without Maven Central (or for a commit that is not released there), [JitPack](https://jitpack.io/#janzeerOrg/janzeer-sdk-kotlin)
+builds any tag of this repository on demand, unsigned:
+
+```kotlin
+repositories { mavenCentral(); maven("https://jitpack.io") }
+dependencies { implementation("com.github.janzeerOrg.janzeer-sdk-kotlin:janzeer-sdk-client:v0.1.2") }
+```
+
 ## 60-second quickstart
 
 ```kotlin
