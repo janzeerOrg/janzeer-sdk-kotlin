@@ -3,6 +3,12 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
+## 0.1.4 — 2026-11-01
+
+Verified against node **0.1.11** (API 1.1.0 / protocol 3.4.0). No API change.
+
+- `SpecVersion.NODE` is **0.1.11** (node maintenance release: the `jz` command-line client — itself built on this SDK — ships in the node bundle; `GET /info/version` now returns `version`, `apiVersion` and `protocolVersion` like `/info`).
+
 ## 0.1.3 — 2026-10-28
 
 Verified against node **0.1.10** (API 1.1.0 / protocol 3.4.0).
