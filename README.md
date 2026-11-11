@@ -11,8 +11,8 @@ process, the node only verifies.
 
 ```kotlin
 dependencies {
-    implementation("org.janzeer:janzeer-sdk-client:0.1.6")   // REST + JSON-RPC + WS (pulls janzeer-sdk-core)
-    // implementation("org.janzeer:janzeer-sdk-core:0.1.6")  // keys, signing, builders only (no networking)
+    implementation("org.janzeer:janzeer-sdk-client:0.1.7")   // REST + JSON-RPC + WS (pulls janzeer-sdk-core)
+    // implementation("org.janzeer:janzeer-sdk-core:0.1.7")  // keys, signing, builders only (no networking)
 }
 ```
 
@@ -30,7 +30,7 @@ builds any tag of this repository on demand, unsigned:
 
 ```kotlin
 repositories { mavenCentral(); maven("https://jitpack.io") }
-dependencies { implementation("com.github.janzeerOrg.janzeer-sdk-kotlin:janzeer-sdk-client:v0.1.6") }
+dependencies { implementation("com.github.janzeerOrg.janzeer-sdk-kotlin:janzeer-sdk-client:v0.1.7") }
 ```
 
 ## 60-second quickstart
@@ -85,7 +85,7 @@ JVM 11+ (built with JDK 17), Android API 26+. Kotlin 2.x or plain Java.
 
 | SDK | Node | REST envelope `version` | Wire protocol | Vectors |
 |---|---|---|---|---|
-| 0.1.x | 0.1.12 | 1.1.0 | 3.4.0 | v2 |
+| 0.1.x | 0.1.13 | 1.1.0 | 3.4.0 | v2 |
 
 `SpecVersion` carries these values; the e2e test checks them against the node on the first call.
 
