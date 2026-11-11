@@ -43,8 +43,11 @@ public class JanzeerClient @JvmOverloads constructor(
     @Volatile public var lastEnvelope: Envelope? = null
         private set
     private val http: OkHttpClient = httpClient ?: OkHttpClient.Builder().callTimeout(15, TimeUnit.SECONDS).build()
+    private val ownsHttp: Boolean = httpClient == null
 
-    override fun close() { http.dispatcher.executorService.shutdown(); http.connectionPool.evictAll() }
+    /** Releases the HTTP client this object created. A client passed in by the caller is shared and is left untouched —
+     *  shutting its dispatcher down broke every other user of it ("executor rejected"). */
+    override fun close() { if (ownsHttp) { http.dispatcher.executorService.shutdown(); http.connectionPool.evictAll() } }
 
     // ---- low level ----------------------------------------------------------------------------------------
 

@@ -3,6 +3,15 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
+## 0.1.6 — 2026-11-11
+
+Reliability fixes from a code review. Node pin unchanged (**0.1.12**, API 1.1.0 / protocol 3.4.0). No API change.
+
+- **`close()` leaves a shared `OkHttpClient` alone.** `JanzeerClient.close()` and `JanzeerRpc.close()` shut down the dispatcher of a client passed in by the caller, so every other user of that client failed with "executor rejected" afterwards. Only a client the SDK created itself is released now (as `JanzeerRpcWs` already did).
+- **`Helpers.waitForFinality` / `sendAndWait` over REST survives a dropped poll.** One transport error while polling (the transaction was already accepted) used to surface as a network error — which a caller can mistake for a failed send and resend. The REST branch now retries until the deadline, like the JSON-RPC branch.
+- **WebSocket, resume after a reconnect.** A `newBlocks` stream now resumes right after the last block it delivered. It used to re-send the original `fromHeight`, so the node replayed every block again (thousands of duplicates on a long-lived stream), and a stream without `fromHeight` silently skipped the blocks committed during the outage. Blocks are delivered exactly once by height.
+- **WebSocket, a failed resubscribe is retried.** A subscription whose re-creation failed (the socket dropped again, a call timed out) was removed for good with an `WsEvent.Error` as the only trace. It now stays registered and is re-created on the next attempt.
+
 ## 0.1.5 — 2026-11-09
 
 Verified against node **0.1.12** (API 1.1.0 / protocol 3.4.0). No API change.

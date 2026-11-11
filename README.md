@@ -11,8 +11,8 @@ process, the node only verifies.
 
 ```kotlin
 dependencies {
-    implementation("org.janzeer:janzeer-sdk-client:0.1.5")   // REST + JSON-RPC + WS (pulls janzeer-sdk-core)
-    // implementation("org.janzeer:janzeer-sdk-core:0.1.5")  // keys, signing, builders only (no networking)
+    implementation("org.janzeer:janzeer-sdk-client:0.1.6")   // REST + JSON-RPC + WS (pulls janzeer-sdk-core)
+    // implementation("org.janzeer:janzeer-sdk-core:0.1.6")  // keys, signing, builders only (no networking)
 }
 ```
 
@@ -30,7 +30,7 @@ builds any tag of this repository on demand, unsigned:
 
 ```kotlin
 repositories { mavenCentral(); maven("https://jitpack.io") }
-dependencies { implementation("com.github.janzeerOrg.janzeer-sdk-kotlin:janzeer-sdk-client:v0.1.5") }
+dependencies { implementation("com.github.janzeerOrg.janzeer-sdk-kotlin:janzeer-sdk-client:v0.1.6") }
 ```
 
 ## 60-second quickstart

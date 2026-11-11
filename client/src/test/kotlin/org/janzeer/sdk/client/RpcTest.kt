@@ -27,6 +27,7 @@ import java.util.concurrent.CopyOnWriteArrayList
 class RpcTest {
     private lateinit var server: MockWebServer
     private val sockets = CopyOnWriteArrayList<WebSocket>()
+    private val fromHeights = CopyOnWriteArrayList<Long?>()
     @BeforeEach fun up() { server = MockWebServer(); server.start() }
     @AfterEach fun down() {
         // MockWebServer's shutdown waits for its per-connection threads; a server-side WebSocket that the client already
@@ -80,8 +81,11 @@ class RpcTest {
                         "janzeer_getTip" -> webSocket.send("""{"jsonrpc":"2.0","id":$id,"result":{"type":"main","height":10,"hash":"h","previousHash":"p","timestamp":1,"producer":"k","signature":"s","epochIndex":1,"transactionsCount":0}}""")
                         "janzeer_subscribe" -> {
                             val sid = "sub${++subs}"; val kind = JsonUtil.str((m["params"] as JsonObject)["kind"])
+                            val from = ((m["params"] as JsonObject)["params"] as? JsonObject)?.let { JsonUtil.optLong(it["fromHeight"]) }
+                            if (kind == "newBlocks") fromHeights.add(from)
+                            val height = maxOf(11L, from ?: 11L)
                             webSocket.send("""{"jsonrpc":"2.0","id":$id,"result":"$sid"}""")
-                            val result = if (kind == "newBlocks") """{"type":"main","height":11,"hash":"h2","previousHash":"h","timestamp":2,"producer":"k","signature":"s"}""" else """{"blockHeight":11,"blockHash":"h2","transaction":{"hash":"tx1","type":"transfer","status":"FINAL","amount":1.25}}"""
+                            val result = if (kind == "newBlocks") """{"type":"main","height":$height,"hash":"h2","previousHash":"h","timestamp":2,"producer":"k","signature":"s"}""" else """{"blockHeight":11,"blockHash":"h2","transaction":{"hash":"tx1","type":"transfer","status":"FINAL","amount":1.25}}"""
                             webSocket.send("""{"jsonrpc":"2.0","method":"janzeer_subscription","params":{"subscription":"$sid","kind":"$kind","result":$result}}""")
                         }
                         "janzeer_unsubscribe" -> webSocket.send("""{"jsonrpc":"2.0","id":$id,"result":true}""")
@@ -107,7 +111,9 @@ class RpcTest {
         assertTrue(ws.connected, events.toString())
         assertTrue(events.contains("Resubscribed"), events.toString())
         assertNotEquals(firstId, sub.id)
-        assertTrue(blocks.size >= 2, "blocks=$blocks activity=$activity events=$events sub=${sub.id} sockets=${sockets.size}")
+        // the stream resumes right after the last delivered block: no replay from the original fromHeight, no duplicate
+        assertEquals(listOf<Long?>(1L, 12L), fromHeights.toList())
+        assertEquals(listOf(11L, 12L), blocks.toList(), "activity=$activity events=$events sub=${sub.id} sockets=${sockets.size}")
         assertTrue(sub.unsubscribe())
         ws.close()
         assertFalse(ws.connected)

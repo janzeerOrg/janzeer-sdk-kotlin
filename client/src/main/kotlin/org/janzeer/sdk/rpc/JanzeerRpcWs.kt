@@ -62,7 +62,12 @@ public class JanzeerRpcWs private constructor(
     private val onEvent: ((WsEvent) -> Unit)?,
     private val ownsHttp: Boolean,
 ) : RpcMethods(), Closeable {
-    internal class LiveSub(@Volatile var id: String, val kind: String, val params: Any, val handler: (JsonElement?) -> Unit)
+    internal class LiveSub(@Volatile var id: String, val kind: String, val params: Any, val handler: (JsonElement?) -> Unit) {
+        /** newBlocks only: height of the last block handed to the handler — where a resubscribe resumes */
+        @Volatile var lastHeight: Long? = null
+        /** true while the server-side subscription must be re-created (set on reconnect, cleared when the call succeeds) */
+        @Volatile var stale: Boolean = false
+    }
 
     private val ids = AtomicLong()
     private val pending = ConcurrentHashMap<Long, CompletableFuture<JsonElement?>>()
@@ -134,6 +139,7 @@ public class JanzeerRpcWs private constructor(
                 socket = webSocket; backoff = reconnectDelayMs
                 onEvent?.invoke(WsEvent.Open)
                 ready.complete(Unit)
+                for (s in subs.values) s.stale = true   // the server forgot them with the old socket
                 scheduler.execute { resubscribe() }
             }
             override fun onMessage(webSocket: WebSocket, text: String) { onText(text) }
@@ -164,18 +170,47 @@ public class JanzeerRpcWs private constructor(
         scheduler.schedule({ if (!closedByUser && !connected) open().exceptionally { null } }, delay, TimeUnit.MILLISECONDS)
     }
 
+    /** Re-create every stale subscription (always on the single scheduler thread, so passes never overlap). One that
+     *  fails stays registered (and stale) and is tried again — it used to be dropped for good, with an error event as
+     *  the only trace. */
     private fun resubscribe() {
-        val old = subs.values.toList()
+        val old = subs.values.filter { it.stale }
         if (old.isEmpty()) return
-        subs.clear()
         var count = 0
+        var failed = 0
         for (s in old) {
+            if (!s.stale || subs[s.id] !== s) continue   // unsubscribed meanwhile
             try {
-                callInternal("janzeer_subscribe", mapOf("kind" to s.kind, "params" to s.params), s)
+                callInternal("janzeer_subscribe", mapOf("kind" to s.kind, "params" to resumeParams(s)), s)
                 count++
-            } catch (e: Exception) { onEvent?.invoke(WsEvent.Error(e)) }
+            } catch (e: Exception) { failed++; onEvent?.invoke(WsEvent.Error(e)) }
         }
         if (count > 0) onEvent?.invoke(WsEvent.Resubscribed(count))
+        if (failed > 0 && !closedByUser && !scheduler.isShutdown) {
+            // still connected: try the rest again shortly (a new reconnect marks everything stale and runs this anyway)
+            try { scheduler.schedule({ if (connected) resubscribe() }, 2, TimeUnit.SECONDS) } catch (e: java.util.concurrent.RejectedExecutionException) { /* closing */ }
+        }
+    }
+
+    /** A newBlocks stream resumes right after the last block it delivered: the original `fromHeight` would replay every
+     *  block again, and without one the blocks committed during the outage would be skipped. */
+    private fun resumeParams(s: LiveSub): Any {
+        val last = s.lastHeight
+        val params = s.params
+        if (s.kind != "newBlocks" || last == null || params !is Map<*, *>) return params
+        return buildMap<Any?, Any?> { putAll(params); put("fromHeight", last + 1) }
+    }
+
+    private fun deliver(sub: LiveSub, result: JsonElement?) {
+        if (sub.kind == "newBlocks") {
+            val h = (result as? JsonObject)?.let { JsonUtil.optLong(it["height"]) }
+            if (h != null) {
+                val last = sub.lastHeight
+                if (last != null && h <= last) return   // replay overlap: exactly once by height
+                sub.lastHeight = h
+            }
+        }
+        try { sub.handler(result) } catch (e: Exception) { onEvent?.invoke(WsEvent.Error(e)) }
     }
 
     private fun onText(text: String) {
@@ -186,14 +221,17 @@ public class JanzeerRpcWs private constructor(
             if (JsonUtil.optStr(o["method"]) == "janzeer_subscription") {
                 val p = o["params"] as? JsonObject ?: continue
                 val sub = subs[JsonUtil.optStr(p["subscription"])] ?: continue
-                if (p.containsKey("result")) try { sub.handler(p["result"]) } catch (e: Exception) { onEvent?.invoke(WsEvent.Error(e)) }
+                if (p.containsKey("result")) deliver(sub, p["result"])
                 continue
             }
             val id = JsonUtil.optLong(o["id"]) ?: continue
             val f = pending.remove(id) ?: continue
             val sub = pendingSubs.remove(id)
             val err = o["error"] as? JsonObject
-            if (err == null && sub != null) { sub.id = JsonUtil.str(o["result"]); subs[sub.id] = sub } // register before completing
+            if (err == null && sub != null) {   // register before completing; a resubscribe replaces the entry under the old id
+                if (sub.id.isNotEmpty() && subs[sub.id] === sub) subs.remove(sub.id)
+                sub.id = JsonUtil.str(o["result"]); sub.stale = false; subs[sub.id] = sub
+            }
             if (err != null) f.completeExceptionally(Errors.fromRpc(err, Transport.WS)) else f.complete(o["result"])
         }
     }

@@ -22,7 +22,8 @@ public object Helpers {
         while (System.currentTimeMillis() < deadline) {
             when (source) {
                 is JanzeerClient -> {
-                    last = restView(source, hash)
+                    // already accepted: a dropped poll is retried until the deadline, like the RPC branch below
+                    try { last = restView(source, hash) } catch (e: NetworkException) { Thread.sleep(1000); continue }
                     if (last?.isFinal == true) return last
                     Thread.sleep(pollMs)
                 }

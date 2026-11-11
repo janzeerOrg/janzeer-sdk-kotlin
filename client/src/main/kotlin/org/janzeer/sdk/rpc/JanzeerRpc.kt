@@ -37,7 +37,10 @@ public class JanzeerRpc @JvmOverloads constructor(url: String, httpClient: OkHtt
     private val http: OkHttpClient = httpClient ?: OkHttpClient.Builder().callTimeout(65, TimeUnit.SECONDS).readTimeout(65, TimeUnit.SECONDS).build()
     private val ids = AtomicLong()
 
-    override fun close() { http.dispatcher.executorService.shutdown(); http.connectionPool.evictAll() }
+    private val ownsHttp: Boolean = httpClient == null
+
+    /** Releases the HTTP client this object created; a client passed in by the caller is shared and is left untouched. */
+    override fun close() { if (ownsHttp) { http.dispatcher.executorService.shutdown(); http.connectionPool.evictAll() } }
 
     override fun call(method: String, params: Any?): JsonElement? {
         val id = ids.incrementAndGet()
