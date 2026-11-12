@@ -38,3 +38,7 @@ node change run `sdk_conformance/sync.sh --regen`; `VectorsTest` verifies the co
 - Java callers matter: `@JvmStatic`, `@JvmOverloads`, no `suspend` in the core surface (extensions only).
 - Every new node method gets a typed wrapper (`RpcMethods` / `JanzeerClient`), a model, a MockWebServer test, an
   `apiDump`, and a line in `CHANGELOG.md`.
+
+## Bounties
+
+Some issues carry a bounty paid in JNZ: see [BOUNTIES.md](BOUNTIES.md).
