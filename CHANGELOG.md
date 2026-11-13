@@ -3,6 +3,12 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
+## 0.1.8 — 2026-11-13
+
+Verified against node **0.1.14** (API 1.1.0 / protocol 3.4.0). No API change.
+
+- `SpecVersion.NODE` is **0.1.14** (node 0.1.14: supply endpoints `/api/v1/supply`, `/supply/total`, `/supply/circulating`, and circulating supply counted the standard way; API 1.1.0 / protocol 3.4.0 unchanged, rolling upgrade).
+
 ## 0.1.7 — 2026-11-11
 
 Verified against node **0.1.13** (API 1.1.0 / protocol 3.4.0). No API change.
