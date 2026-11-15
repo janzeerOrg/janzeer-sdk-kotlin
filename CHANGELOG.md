@@ -5,7 +5,7 @@ All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](htt
 
 ## Unreleased
 
-- **Typed JSON-RPC wrappers on `RpcMethods`**: added `getGenesis()` (and `getGenesisAsync()`) returning `GenesisBlock`.
+- **Typed JSON-RPC wrappers on `RpcMethods`**: added `getGenesis()` (and `getGenesisAsync()`) returning the genesis document as `JsonElement`.
 
 ## 0.1.8 — 2026-11-13
 

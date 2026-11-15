@@ -47,7 +47,7 @@ class RpcTest {
             "janzeer_getBalance" -> if (JsonUtil.optStr(p?.get("address")) == "0x12") """{"jsonrpc":"2.0","id":$id,"error":{"code":-32602,"message":"Invalid address '0x12'"}}""" else """{"jsonrpc":"2.0","id":$id,"result":1000.00000001}"""
             "janzeer_getTransactionByHash" -> """{"jsonrpc":"2.0","id":$id,"result":{"hash":"${JsonUtil.optStr(p?.get("hash"))}","type":null,"status":"UNKNOWN"}}"""
             "janzeer_getToken" -> """{"jsonrpc":"2.0","id":$id,"error":{"code":-32000,"message":"Token not found"}}"""
-            "janzeer_getGenesis" -> """{"jsonrpc":"2.0","id":$id,"result":{"timestamp":1700000000,"height":0,"previousHash":"0x0000000000000000000000000000000000000000000000000000000000000000","hash":"0xgenesis_hash","signature":"0xgenesis_sig","publicKey":"0xgenesis_pubkey","epochIndex":0,"validatorsCount":4}}"""
+            "janzeer_getGenesis" -> """{"jsonrpc":"2.0","id":$id,"result":{"specVersion":1,"networkId":"janzeer","createDate":1700000000,"signerPublicKey":"0xgenesis_pubkey","anchors":[]}}"""
             "janzeer_sendTransfer" -> """{"jsonrpc":"2.0","id":$id,"error":{"code":-32001,"message":"Invalid nonce for 0x06e1c0fa9955a700876f8cb0acc7f13fba9fb8ba: expected 1, got 5","data":{"type":"INVALID_NONCE"}}}"""
             else -> """{"jsonrpc":"2.0","id":$id,"error":{"code":-32601,"message":"Method not found"}}"""
         }
@@ -70,13 +70,10 @@ class RpcTest {
         assertEquals(1L, assertThrows(NonceMismatchException::class.java) { rpc.sendTransfer(emptyMap()) }.expected)
         assertEquals(TxStatus.UNKNOWN, rpc.getTransactionByHash("ab").status)
         val gen = rpc.getGenesis()
-        assertEquals(0L, gen.height)
-        assertEquals("0xgenesis_hash", gen.hash)
-        assertEquals(4, gen.validatorsCount)
+        assertEquals("janzeer", JsonUtil.str(JsonUtil.reqObj(gen)["networkId"]))
         runBlocking {
             val genAsync = rpc.getGenesisAsync()
-            assertEquals(0L, genAsync.height)
-            assertEquals("0xgenesis_hash", genAsync.hash)
+            assertEquals("janzeer", JsonUtil.str(JsonUtil.reqObj(genAsync)["networkId"]))
         }
         val r = rpc.batch(listOf(BatchRequest("janzeer_getNonce", mapOf("address" to "0xa")), BatchRequest("janzeer_nope"), BatchRequest("janzeer_getBalance", mapOf("address" to "0xa"))))
         assertTrue(r[0].ok); assertFalse(r[1].ok); assertEquals("1000.00000001", JsonUtil.dec(r[2].result).toPlainString())
