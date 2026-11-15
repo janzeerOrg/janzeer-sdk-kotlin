@@ -1,6 +1,7 @@
 package org.janzeer.sdk.rpc
 
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonNull
 import org.janzeer.sdk.TxType
 import org.janzeer.sdk.client.JsonUtil
 import org.janzeer.sdk.client.Token
@@ -46,6 +47,7 @@ public abstract class RpcMethods : RpcTransport {
     public fun estimateFee(kind: String): FeeEstimate = FeeEstimate.from(call("janzeer_estimateFee", mapOf("kind" to kind)))
 
     public fun getTip(): BlockView = BlockView.from(call("janzeer_getTip"))
+    public fun getGenesis(): JsonElement = call("janzeer_getGenesis") ?: JsonNull
     @JvmOverloads public fun getBlockByNumber(height: Long, includeTransactions: Boolean = false): BlockView = BlockView.from(call("janzeer_getBlockByNumber", mapOf("height" to height, "includeTransactions" to includeTransactions)))
     @JvmOverloads public fun getBlockByHash(hash: String, includeTransactions: Boolean = false): BlockView = BlockView.from(call("janzeer_getBlockByHash", mapOf("hash" to hash, "includeTransactions" to includeTransactions)))
     /** ascending, at most 100 blocks per call */

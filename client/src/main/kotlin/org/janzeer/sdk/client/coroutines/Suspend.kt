@@ -2,6 +2,7 @@ package org.janzeer.sdk.client.coroutines
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.json.JsonElement
 import org.janzeer.sdk.client.Helpers
 import org.janzeer.sdk.client.JanzeerClient
 import org.janzeer.sdk.rpc.RpcMethods
@@ -14,6 +15,7 @@ public suspend fun JanzeerClient.balanceAsync(address: String): BigDecimal = wit
 public suspend fun JanzeerClient.nonceAsync(address: String): Long = withContext(Dispatchers.IO) { nonce(address) }
 public suspend fun JanzeerClient.submitAsync(tx: SignedTx): org.janzeer.sdk.client.BaseTx = withContext(Dispatchers.IO) { submit(tx) }
 public suspend fun RpcMethods.sendAsync(tx: SignedTx): org.janzeer.sdk.rpc.SendResult = withContext(Dispatchers.IO) { send(tx) }
+public suspend fun RpcMethods.getGenesisAsync(): JsonElement = withContext(Dispatchers.IO) { getGenesis() }
 public suspend fun RpcMethods.getAccountAsync(address: String): org.janzeer.sdk.rpc.AccountView = withContext(Dispatchers.IO) { getAccount(address) }
 /** [Helpers.waitForFinality] on the IO dispatcher. */
 public suspend fun waitForFinalityAsync(source: Any, hash: String, timeoutMs: Long = 180_000): TxView = withContext(Dispatchers.IO) { Helpers.waitForFinality(source, hash, timeoutMs) }

@@ -3,6 +3,10 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
+## Unreleased
+
+- **Typed JSON-RPC wrappers on `RpcMethods`**: added `getGenesis()` (and `getGenesisAsync()`) returning the genesis document as `JsonElement`.
+
 ## 0.1.8 — 2026-11-13
 
 Verified against node **0.1.14** (API 1.1.0 / protocol 3.4.0). No API change.
