@@ -14,6 +14,7 @@ public suspend fun JanzeerClient.balanceAsync(address: String): BigDecimal = wit
 public suspend fun JanzeerClient.nonceAsync(address: String): Long = withContext(Dispatchers.IO) { nonce(address) }
 public suspend fun JanzeerClient.submitAsync(tx: SignedTx): org.janzeer.sdk.client.BaseTx = withContext(Dispatchers.IO) { submit(tx) }
 public suspend fun RpcMethods.sendAsync(tx: SignedTx): org.janzeer.sdk.rpc.SendResult = withContext(Dispatchers.IO) { send(tx) }
+public suspend fun RpcMethods.getGenesisAsync(): org.janzeer.sdk.client.GenesisBlock = withContext(Dispatchers.IO) { getGenesis() }
 public suspend fun RpcMethods.getAccountAsync(address: String): org.janzeer.sdk.rpc.AccountView = withContext(Dispatchers.IO) { getAccount(address) }
 /** [Helpers.waitForFinality] on the IO dispatcher. */
 public suspend fun waitForFinalityAsync(source: Any, hash: String, timeoutMs: Long = 180_000): TxView = withContext(Dispatchers.IO) { Helpers.waitForFinality(source, hash, timeoutMs) }

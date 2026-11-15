@@ -12,7 +12,7 @@ rpc.getStats(); rpc.getEpoch()
 rpc.getAccount(addr); rpc.getBalance(addr); rpc.getNonce(addr)
 rpc.getTransactionsByAddress(addr, PageParams(size = 20))        // page + pending
 rpc.getTransactionByHash(hash);                          // status FINAL | PENDING | UNKNOWN
-rpc.getTip(); rpc.getBlockByNumber(12, true); rpc.getBlocks(1, 100)
+rpc.getTip(); rpc.getGenesis(); rpc.getBlockByNumber(12, true); rpc.getBlocks(1, 100)
 rpc.listValidators(); rpc.getActiveValidators(); rpc.getValidator(key)
 rpc.listTokens(); rpc.getToken(id); rpc.getTokenHolders(id)
 rpc.estimateFee("transfer")                             // fee, rule: "minimum" | "exact"

@@ -848,6 +848,7 @@ public final class org/janzeer/sdk/client/ValidatorView$Companion {
 public final class org/janzeer/sdk/client/coroutines/SuspendKt {
 	public static final fun balanceAsync (Lorg/janzeer/sdk/client/JanzeerClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun getAccountAsync (Lorg/janzeer/sdk/rpc/RpcMethods;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getGenesisAsync (Lorg/janzeer/sdk/rpc/RpcMethods;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun nonceAsync (Lorg/janzeer/sdk/client/JanzeerClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun sendAndWaitAsync (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;Ljava/lang/Object;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun sendAndWaitAsync$default (Ljava/lang/Object;Lorg/janzeer/sdk/tx/SignedTx;Ljava/lang/Object;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
@@ -1294,6 +1295,7 @@ public abstract class org/janzeer/sdk/rpc/RpcMethods : org/janzeer/sdk/rpc/RpcTr
 	public static synthetic fun getBlocks$default (Lorg/janzeer/sdk/rpc/RpcMethods;JJZILjava/lang/Object;)Ljava/util/List;
 	public final fun getChainSpec ()Lorg/janzeer/sdk/rpc/ChainSpecView;
 	public final fun getEpoch ()Lorg/janzeer/sdk/rpc/EpochView;
+	public final fun getGenesis ()Lorg/janzeer/sdk/client/GenesisBlock;
 	public final fun getInfo ()Lorg/janzeer/sdk/rpc/NodeInfoView;
 	public final fun getNonce (Ljava/lang/String;)J
 	public final fun getStats ()Lorg/janzeer/sdk/rpc/StatsView;
