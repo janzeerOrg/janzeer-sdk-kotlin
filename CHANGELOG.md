@@ -3,9 +3,11 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
-## Unreleased
+## 0.1.9 — 2026-11-15
 
-- **Typed JSON-RPC wrappers on `RpcMethods`**: added `getGenesis()` (and `getGenesisAsync()`) returning the genesis document as `JsonElement`.
+Verified against node **0.1.14** (API 1.1.0 / protocol 3.4.0).
+
+- **`RpcMethods.getGenesis()`** (`janzeer_getGenesis`) and the suspend variant **`getGenesisAsync()`**: the network's public genesis document (`specVersion`, `networkId`, `anchors`, …) as a `JsonElement`. It was the last node method without a typed wrapper. Contributed by @genda-benjamin (#3).
 
 ## 0.1.8 — 2026-11-13
 

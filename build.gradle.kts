@@ -9,7 +9,7 @@ plugins {
 
 allprojects {
     group = "org.janzeer"
-    version = "0.1.8"
+    version = "0.1.9"
 }
 
 apiValidation { ignoredProjects += listOf("examples") }
