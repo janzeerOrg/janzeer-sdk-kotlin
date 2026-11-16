@@ -19,9 +19,6 @@ fun main() {
     ws.subscribeNewBlocks(NewBlocksParams(fromHeight = fromHeight, includeTransactions = false)) { b ->
         val n = seen.incrementAndGet()
         println("block ${b.height} ${b.hash.take(12)} producer=${b.producer} txs=${b.transactionsCount}")
-        if (n >= maxBlocks) {
-            // main loop will exit on deadline/block count check
-        }
     }
 
     val seconds = env["EXAMPLE_SECONDS"]?.toLongOrNull() ?: 40

@@ -93,7 +93,9 @@ JVM 11+ (built with JDK 17), Android API 26+. Kotlin 2.x or plain Java.
 
 `examples/`: [quickstart transfer](examples/src/main/kotlin/org/janzeer/examples/QuickstartTransfer.kt),
 address-activity subscription, token create + transfer, validator registration (dry run), vault round trip,
-and the Java quickstart. Run one with
+[watch new blocks](examples/src/main/kotlin/org/janzeer/examples/WatchNewBlocks.kt)
+(`./gradlew :examples:run -PmainClass=org.janzeer.examples.WatchNewBlocksKt`),
+and the Java quickstart. Run another with
 `./gradlew :examples:run -PmainClass=org.janzeer.examples.QuickstartTransferKt` against the network in
 `JANZEER_NODE_URL`.
 
