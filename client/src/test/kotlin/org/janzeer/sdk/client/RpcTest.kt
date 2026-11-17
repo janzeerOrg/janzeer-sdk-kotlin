@@ -15,6 +15,10 @@ import org.janzeer.sdk.rpc.NewBlocksParams
 import org.janzeer.sdk.rpc.TxStatus
 import org.janzeer.sdk.rpc.WsEvent
 import org.janzeer.sdk.client.coroutines.getGenesisAsync
+import org.janzeer.sdk.rpc.newBlocksFlow
+import org.janzeer.sdk.rpc.addressActivityFlow
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -127,5 +131,61 @@ class RpcTest {
         ws.close()
         assertFalse(ws.connected)
         Thread.sleep(200)
+    }
+
+    @Test fun `ws flows deliver events in order, cancel sends unsubscribe, error fails flow`() = runBlocking {
+        var unsubscribed = false
+        server.dispatcher = object : Dispatcher() {
+            override fun dispatch(request: RecordedRequest) = MockResponse().withWebSocketUpgrade(object : WebSocketListener() {
+                override fun onOpen(webSocket: WebSocket, response: okhttp3.Response) { sockets.add(webSocket) }
+                override fun onMessage(webSocket: WebSocket, text: String) {
+                    val m = JsonUtil.reqObj(JsonUtil.parse(text)); val id = JsonUtil.optLong(m["id"])
+                    when (JsonUtil.optStr(m["method"])) {
+                        "janzeer_subscribe" -> {
+                            val p = m["params"] as JsonObject
+                            val kind = JsonUtil.str(p["kind"])
+                            val addresses = (p["params"] as? JsonObject)?.get("addresses") as? JsonArray
+                            if (addresses?.any { JsonUtil.str(it) == "0xerror" } == true) {
+                                webSocket.send("""{"jsonrpc":"2.0","id":$id,"error":{"code":-32000,"message":"Invalid address"}}""")
+                                return
+                            }
+                            val sid = "sub_flow"
+                            webSocket.send("""{"jsonrpc":"2.0","id":$id,"result":"$sid"}""")
+                            if (kind == "newBlocks") {
+                                webSocket.send("""{"jsonrpc":"2.0","method":"janzeer_subscription","params":{"subscription":"$sid","kind":"$kind","result":{"type":"main","height":100,"hash":"h100","previousHash":"h99","timestamp":1,"producer":"k","signature":"s"}}}""")
+                                webSocket.send("""{"jsonrpc":"2.0","method":"janzeer_subscription","params":{"subscription":"$sid","kind":"$kind","result":{"type":"main","height":101,"hash":"h101","previousHash":"h100","timestamp":2,"producer":"k","signature":"s"}}}""")
+                            } else {
+                                webSocket.send("""{"jsonrpc":"2.0","method":"janzeer_subscription","params":{"subscription":"$sid","kind":"$kind","result":{"blockHeight":100,"blockHash":"h100","transaction":{"hash":"tx_flow","type":"transfer","status":"FINAL","amount":2.5}}}}""")
+                            }
+                        }
+                        "janzeer_unsubscribe" -> {
+                            unsubscribed = true
+                            webSocket.send("""{"jsonrpc":"2.0","id":$id,"result":true}""")
+                        }
+                        else -> webSocket.send("""{"jsonrpc":"2.0","id":$id,"error":{"code":-32601,"message":"Method not found"}}""")
+                    }
+                }
+            })
+        }
+        val ws = JanzeerRpcWs.connect(server.url("/").toString(), reconnect = false)
+        try {
+            val blocks = ws.newBlocksFlow(NewBlocksParams(fromHeight = 100)).take(2).toList()
+            assertEquals(2, blocks.size)
+            assertEquals(100L, blocks[0].height)
+            assertEquals(101L, blocks[1].height)
+            assertTrue(unsubscribed)
+
+            val activity = ws.addressActivityFlow(listOf("0x123")).take(1).toList()
+            assertEquals(1, activity.size)
+            assertEquals("tx_flow", activity[0].transaction.hash)
+
+            assertThrows(JanzeerException::class.java) {
+                runBlocking {
+                    ws.addressActivityFlow(listOf("0xerror")).collect {}
+                }
+            }
+        } finally {
+            ws.close()
+        }
     }
 }

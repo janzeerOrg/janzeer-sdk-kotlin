@@ -1584,3 +1584,9 @@ public final class org/janzeer/sdk/rpc/WsEvent$Resubscribed : org/janzeer/sdk/rp
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class org/janzeer/sdk/rpc/WsFlowsKt {
+	public static final fun addressActivityFlow (Lorg/janzeer/sdk/rpc/JanzeerRpcWs;Ljava/util/List;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun newBlocksFlow (Lorg/janzeer/sdk/rpc/JanzeerRpcWs;Lorg/janzeer/sdk/rpc/NewBlocksParams;)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun newBlocksFlow$default (Lorg/janzeer/sdk/rpc/JanzeerRpcWs;Lorg/janzeer/sdk/rpc/NewBlocksParams;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+}
+
