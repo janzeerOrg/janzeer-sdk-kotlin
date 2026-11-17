@@ -3,9 +3,11 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
-## Unreleased
+## 0.1.11 — 2026-11-17
 
-- **`JanzeerRpcWs.newBlocksFlow` and `JanzeerRpcWs.addressActivityFlow`**: cold `Flow` wrappers over WebSocket subscriptions with automatic unsubscription on cancellation, `trySendBlocking` backpressure, and synchronous failure propagation on subscribe errors. Contributed by @genda-benjamin (#7).
+Verified against node **0.1.14** (API 1.1.0 / protocol 3.4.0).
+
+- **`JanzeerRpcWs.newBlocksFlow` and `JanzeerRpcWs.addressActivityFlow`**: cold `Flow` wrappers over WebSocket subscriptions with automatic unsubscription on cancellation, `trySendBlocking` backpressure, and synchronous failure propagation on subscribe errors. `kotlinx-coroutines-core` is now an `api` dependency of the client module. Contributed by @genda-benjamin (#7, #10).
 
 ## 0.1.10 — 2026-11-16
 
