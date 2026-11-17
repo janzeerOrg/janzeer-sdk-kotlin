@@ -60,6 +60,23 @@ ws.close()
 - Slow consumers are disconnected by the node (2 MiB send buffer, 5 s send timeout) — keep handlers fast.
 - Notifications arrive on OkHttp's reader thread; hop to your own executor / main thread before touching UI.
 
+### Coroutine Flows
+
+For Kotlin and Android callers, `newBlocksFlow` and `addressActivityFlow` provide cold `Flow` wrappers over the WebSocket subscription feeds:
+
+```kotlin
+// Cold Flow of finalized blocks: collecting subscribes, cancelling collector unsubscribes
+ws.newBlocksFlow(NewBlocksParams(fromHeight = 100))
+    .take(5)
+    .collect { block -> println("Block ${block.height}: ${block.hash}") }
+
+// Cold Flow of transactions touching specific addresses
+ws.addressActivityFlow(listOf(myAddress))
+    .collect { event -> println("Activity in block ${event.blockHeight}: ${event.transaction.hash}") }
+```
+
+Events are dispatched with `trySendBlocking` to guarantee no events are silently dropped under collector backpressure. Cancelling collection calls `Subscription.unsubscribe()` in `awaitClose` without closing the underlying socket.
+
 ## Errors
 
 JSON-RPC errors map to the same classes as REST — see [errors](errors.md). A `-32001` rejection is a

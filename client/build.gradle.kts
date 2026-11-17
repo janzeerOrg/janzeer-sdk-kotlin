@@ -20,7 +20,7 @@ dependencies {
     api(project(":janzeer-sdk-core"))
     implementation(libs.okhttp)
     implementation(libs.serialization.json)
-    implementation(libs.coroutines.core)
+    api(libs.coroutines.core)
     testImplementation(platform(libs.junit.bom))
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly(libs.junit.launcher)
