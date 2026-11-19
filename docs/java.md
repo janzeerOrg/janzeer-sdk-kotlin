@@ -28,7 +28,7 @@ Notes:
 - `TxBuilder.transfer` overloads: `(from, to, amount, nonce)`, `(from, to, amount, nonce, data)`,
   `(…, data, fee)`, `(…, fee, timestamp)`, `(…, timestamp, networkId)`.
 - Amount parameters are `Object`: pass a `String` (`"1.25"`), `BigDecimal`, `BigInteger` or `Long`.
-- Lambdas: `ws.subscribeNewBlocks(new NewBlocksParams(100L, true), block -> { …; return Unit.INSTANCE; })`.
+- Lambdas: `ws.subscribeNewBlocks(new NewBlocksParams(100L, true), block -> { …; return Unit.INSTANCE; })` (see `JavaWatchNewBlocks.java`).
 - Exceptions are unchecked (`RuntimeException` subclasses); see [errors](errors.md).
 
-The complete example: `examples/src/main/java/org/janzeer/examples/JavaQuickstart.java`.
+The complete examples: `examples/src/main/java/org/janzeer/examples/JavaQuickstart.java` (transfers) and `examples/src/main/java/org/janzeer/examples/JavaWatchNewBlocks.java` (WebSocket subscriptions).

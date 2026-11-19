@@ -3,6 +3,10 @@
 All notable changes to `janzeer-sdk` are documented here ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [SemVer](https://semver.org/)). The public API surface is pinned by `*/api/*.api` (binary-compatibility-validator).
 
+## Unreleased
+
+- **New Java example `JavaWatchNewBlocks.java`**: follow newly finalized blocks over the WebSocket feed from plain Java with `subscribeNewBlocks` (demonstrating `Unit.INSTANCE` lambda return), stopping after `EXAMPLE_BLOCKS` blocks or `EXAMPLE_SECONDS`. Run it with `./gradlew :examples:run -PmainClass=org.janzeer.examples.JavaWatchNewBlocks`. Contributed by @genda-benjamin (#8). No library change.
+
 ## 0.1.11 — 2026-11-17
 
 Verified against node **0.1.14** (API 1.1.0 / protocol 3.4.0).
